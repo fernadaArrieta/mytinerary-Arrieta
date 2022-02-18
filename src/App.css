@@ -4,8 +4,8 @@
   box-sizing: border-box;
 }
 body{
-  width: 100vw;
-  min-height: 100%;
+  width: 100vw !important;
+  min-height: 100% !important;
   display: flex;
   flex-direction: column;
 }
