@@ -1,0 +1,14 @@
+.footerNav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+   
+   margin-top: 3rem;
+    top:10px;
+    width: 100vw;
+    height: 250px;
+    background-color:#c6e0f3;
+}
+.navFooter{
+    font-size: 20px;
+}
