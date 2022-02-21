@@ -38,7 +38,7 @@ const ResponsiveAppBar = () => {
 
   return (
     
-    <AppBar position="static" sx={{backgroundColor:'#D6EAF8 '}}>
+    <AppBar position="static" sx={{backgroundColor:'#5D6D7E '}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters >
           <Typography
@@ -50,9 +50,18 @@ const ResponsiveAppBar = () => {
           
           onClick={handleCloseNavMenu}
           sx={{ my: 2, color: 'white', display: 'block' }}
+        > <NavLink to= '/'>MYTINERARY
+        </NavLink>      
+         
+        </Button>
+          <Button
+          
+          onClick={handleCloseNavMenu}
+          sx={{ my: 2, color: 'white', display: 'block' }}
         > <NavLink to= '/'>HOME</NavLink>      
          
         </Button>
+       
           
           </Typography>
 

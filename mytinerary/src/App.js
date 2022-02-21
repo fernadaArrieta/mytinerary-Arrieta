@@ -5,6 +5,7 @@ import CarrouselApp from "./componentes/carrousel";
 import Footer from "./componentes/footer";
 import Cities from "./componentes/cities"
 import Home from "./componentes/home"
+import Hero from "./componentes/hero"
 
 
 function App() {
@@ -16,8 +17,9 @@ function App() {
       <Route path='/' element={
       
       <div className="App">   
-     <Home/>  
-     <h2 className="tituloCarrousel">Popular Mytineraries</h2>
+     <Home/>
+     <Hero/>  
+     <h4 className="tituloCarrousel">Popular Mytineraries</h4>     
      <CarrouselApp />
      </div>
     }/> 

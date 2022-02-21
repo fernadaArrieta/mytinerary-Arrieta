@@ -11,19 +11,8 @@ export default function Home(){
         <img
           className="imagen1"
           src={require("../ciudad de Mendoza/mendoza-capitaljpg.jpg")}
-          alt="ciudad"/>
-        <h1 className="isotipo">         
-          "Find your perfect trip, designed by insider who Know and love their
-          cities!"
-        </h1>
-       
- 
-    <Stack className="BotonCta" direction="row" spacing={2}>
-     <NavLink to='/cities'> <Button className="btnCta" variant="outlined" >MyTineray</Button></NavLink>
-      
-    </Stack>
- 
-
+          alt="ciudad"/>            
+     
 
         </div>   );           
     }

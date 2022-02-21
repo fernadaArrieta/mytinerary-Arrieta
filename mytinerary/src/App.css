@@ -22,16 +22,11 @@ body{
   display: inline-block;
   text-align: center;
 }
-.isotipo{
-  position: absolute;
-  top: 15rem;
-  left: 8rem;
-  color:cadetblue ;
-  text-shadow: #333 0.1em 0.1em 0.2em;
-}
+
 .tituloCarrousel{
   text-align: center;
   color:cadetblue ;
+  font-size: 30px;
 }
 a{
   text-decoration: none !important;
