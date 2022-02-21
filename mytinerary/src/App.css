@@ -24,11 +24,30 @@ body{
 }
 .isotipo{
   position: absolute;
-  top: 20px;
-  left: 80px;
-  color:cadetblue;
+  top: 15rem;
+  left: 8rem;
+  color:cadetblue ;
+  text-shadow: #333 0.1em 0.1em 0.2em;
 }
 .tituloCarrousel{
   text-align: center;
   color:cadetblue ;
+}
+a{
+  text-decoration: none !important;
+  color: #fff;
+}
+.BotonCta{
+  position: absolute;
+  top: 19rem;
+  left: 35rem !important;
+  
+}
+.btnCta{
+  font-size: 25px !important;
+  color: aliceblue !important;
+  text-decoration: none !important;
+ background-color:cadetblue !important ;
+ box-shadow: #333 0.1em 0.1em 0.2em !important;
+ text-shadow: #333 0.1em 0.1em 0.2em !important;
 }

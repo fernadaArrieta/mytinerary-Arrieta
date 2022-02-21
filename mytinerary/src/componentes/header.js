@@ -11,9 +11,10 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { Link as LinkRouter } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
-const pages = ['Cities', 'Cards'];
+
+const pages = ['Cities', ];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
@@ -36,6 +37,7 @@ const ResponsiveAppBar = () => {
   };
 
   return (
+    
     <AppBar position="static" sx={{backgroundColor:'#D6EAF8 '}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters >
@@ -44,8 +46,14 @@ const ResponsiveAppBar = () => {
             noWrap
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-          >
-          MyTineray
+          > <Button
+          
+          onClick={handleCloseNavMenu}
+          sx={{ my: 2, color: 'white', display: 'block' }}
+        > <NavLink to= '/'>HOME</NavLink>      
+         
+        </Button>
+          
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -90,7 +98,7 @@ const ResponsiveAppBar = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
-            MyTineray
+            
 
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
@@ -99,8 +107,9 @@ const ResponsiveAppBar = () => {
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-              {page} 
+              > <NavLink to= '/cities'>{page}</NavLink>
+             
+               
               </Button>
             ))}
           </Box>

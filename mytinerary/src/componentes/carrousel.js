@@ -21,7 +21,7 @@ export default function CarrouselApp() {
       spaceBetween={30}
     
       autoplay={{
-        delay: 2500,
+        delay: 3500,
         disableOnInteraction: false,
       }}  
         pagination={{

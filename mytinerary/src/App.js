@@ -3,36 +3,29 @@ import "./App.css";
 import ResponsiveAppBar from "./componentes/header";
 import CarrouselApp from "./componentes/carrousel";
 import Footer from "./componentes/footer";
-
+import Cities from "./componentes/cities"
+import Home from "./componentes/home"
 
 
 function App() {
   return (
 <BrowserRouter>
+<ResponsiveAppBar />
 <Routes>
-{/* <div className="App"> */}
       
       <Route path='/' element={
       
-      <div className="App">
-        <ResponsiveAppBar />
-        <div className="contenedor">
-        <img
-          className="imagen1"
-          src={require("./ciudad de Mendoza/mendoza-capitaljpg.jpg")}
-          alt="ciudad"/>
-        <h1 className="isotipo">         
-          "Find your perfect trip, designed by insider who Know and love their
-          cities!"
-        </h1></div>             
+      <div className="App">   
+     <Home/>  
      <h2 className="tituloCarrousel">Popular Mytineraries</h2>
      <CarrouselApp />
-     <Footer/></div>
+     </div>
     }/> 
     <Route path='*' element={<h1>Web site under construction</h1>}/>
-     
+     <Route path='/cities' element= {<Cities/>}/>
    
 </Routes>
+<Footer/>
 </BrowserRouter>
    
   );
