@@ -1,18 +1,16 @@
 import { NavLink } from "react-router-dom"
 import * as React from 'react';
-import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
+import CarrouselApp from "./carrousel";
+import Hero from './hero';
 
 export default function Home(){
 
     return( 
-        
-        <div className="contenedor">
-        <img
-          className="imagen1"
-          src={require("../ciudad de Mendoza/mendoza-capitaljpg.jpg")}
-          alt="ciudad"/>            
-     
-
-        </div>   );           
+      <div className="App">   
+      
+      <Hero/>  
+      <h4 className="tituloCarrousel">Popular Mytineraries</h4>     
+      <CarrouselApp />
+      </div>
+       );           
     }

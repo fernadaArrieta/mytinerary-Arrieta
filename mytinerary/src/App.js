@@ -15,15 +15,10 @@ function App() {
 <Routes>
       
       <Route path='/' element={
-      
-      <div className="App">   
-     <Home/>
-     <Hero/>  
-     <h4 className="tituloCarrousel">Popular Mytineraries</h4>     
-     <CarrouselApp />
-     </div>
+      <Home/>
+    
     }/> 
-    <Route path='*' element={<h1>Web site under construction</h1>}/>
+    <Route path='*' element={<Home/>}/>
      <Route path='/cities' element= {<Cities/>}/>
    
 </Routes>

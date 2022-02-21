@@ -1,19 +1,19 @@
 
 
 body{
-width: 100%;
+width: 100vw;
+
 }
 .seccion{
-    background: url(https://realestatemarket.com.mx/images/2020/04-Abril/0704/Aeromexico_registra_menos_viajes_en_marzo_1.gif);
+    background: url(https://realestatemarket.com.mx/images/2020/04-Abril/0704/Aeromexico_registra_menos_viajes_en_marzo_1.gif) center no-repeat;
     position: relative;
-    overflow: hidden;
+    overflow: hidden;    
     padding: 100px 30px;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-top: 50px;
+   
 
 }
 .backgroundCaja{
-
     position: absolute;
     top: 0;
     left: 0;
@@ -31,10 +31,12 @@ width: 100%;
 h2{
     text-align: center;
     font-size: 40px;
+    color: #2f455d;
 }
 p{
     font-size: 30px;
     text-align: center;
+    color: #2f455d;
 }
 @media(min-width:768px){
     .contenido{
@@ -42,7 +44,7 @@ p{
     }
     .cta-col{
         min-height: 200px;
-        border:2px solid blue;
+      
     }
     .col1{
         width: 60%;
@@ -53,27 +55,41 @@ p{
     h2{
         font-size: 50px;
         letter-spacing: 2px;
-        font-family:cursive;
+        font-family:roboto;
         margin: 15px o;
+     cursor: ;
     }
     p{
         line-height: 24px;
     }
     .cta-btn{
-        padding: 78px 40px;
+        padding: 20px 40px ;
         line-height: 21px;
         font-size: 18px;
-        color: blue;
+        color: #fff;
         text-decoration: none;
         background-color:cadetblue;
         text-transform: uppercase;
-        display: block;
+        display:flex;
+        align-items: center;
+        justify-content: center;
         box-shadow: #333 0.1em 0.1em 0.2em !important;
         text-shadow: #333 0.1em 0.1em 0.2em !important;
-        border:2px solid blue;
+        border:2px solid  #3b5775;
+        border-radius: 30px;
     }
+    
+
     .btn-holder{
-        float:right;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+        
+    }
+    .cta-btn:hover{
+        color: #2f455d ;
+        background-color: aquamarine;
     }
     .cta-col{
         margin-bottom: 15px;

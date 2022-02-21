@@ -1,8 +1,12 @@
 
 
-const textoVacio= "page under construction" 
+ 
 
  export default function Cities(){
 
-    return( textoVacio)
+    return( 
+        <div className= 'cont-cities'>
+        <h1 className='pagCities'>"Page Under Construction"</h1>
+        </div>
+    )
 }

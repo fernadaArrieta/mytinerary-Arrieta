@@ -1,4 +1,5 @@
 
+import { NavLink } from "react-router-dom";
 import "../styles/hero.css";
 
 export default function Hero(){
@@ -17,7 +18,7 @@ export default function Hero(){
                 <div className="cta-col col2">
                     <div className="col-contenido">
                         <div className="btn-holder">
-                            <a href="/cities" className="cta-btn">Cities</a>
+                           <NavLink to='/cities' className="cta-btn"><bottom>Cities</bottom></NavLink>
                         </div>
                     </div>
            </div>

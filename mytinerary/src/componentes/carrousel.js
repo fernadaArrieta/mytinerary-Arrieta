@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import { NavLink } from "react-router-dom"
 
 // Import Swiper styles
 import "swiper/css";
@@ -15,7 +16,7 @@ import { Autoplay, Pagination, Navigation  } from "swiper";
 export default function CarrouselApp() {
   return (
     <>
-      <Swiper
+     <NavLink to='/cities'> <Swiper
       slidesPerView={4}
       slidesPerGroup={4}
       spaceBetween={30}
@@ -61,7 +62,7 @@ export default function CarrouselApp() {
         </SwiperSlide>
         
           )}
-          </Swiper>
+          </Swiper></NavLink>
       
     </>
         
