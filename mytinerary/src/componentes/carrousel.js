@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import { NavLink } from "react-router-dom"
+
 
 // Import Swiper styles
 import "swiper/css";
@@ -16,7 +16,7 @@ import { Autoplay, Pagination, Navigation  } from "swiper";
 export default function CarrouselApp() {
   return (
     <>
-     <NavLink to='/cities'> <Swiper
+      <Swiper
       slidesPerView={4}
       slidesPerGroup={4}
       spaceBetween={30}
@@ -56,13 +56,13 @@ export default function CarrouselApp() {
         className="mySwiper"
      >
         {datoCiudad.map(ciudad =>
-        <SwiperSlide>
+        <SwiperSlide key={ciudad.id}>
           <img src={ciudad.imagen}/>
           <h3 className="nombreCiudad">{ciudad.nombre}</h3>
         </SwiperSlide>
         
           )}
-          </Swiper></NavLink>
+          </Swiper>
       
     </>
         

@@ -50,5 +50,6 @@ body {
 }
 .nombreCiudad{
   position: absolute;
-  top: 20px
+  top: 20px;
+  color: aliceblue !important;
 }
