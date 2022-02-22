@@ -16,8 +16,8 @@ body {
 }
 
 .swiper {
-  width: 100% !important;
-  height: 80vh !important;
+  width: 100vw !important;
+  height: 60vh !important;
   margin: 1rem;
 }
 

@@ -17,7 +17,7 @@ export default function CarrouselApp() {
   return (
     <>
       <Swiper
-      slidesPerView={4}
+      slidesPerView={1}
       slidesPerGroup={4}
       spaceBetween={30}
     
