@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import "./styles.css";
+import "../styles/styles.css";
 import datoCiudad from "../styles/datos"
 
 // import required modules
@@ -18,7 +18,7 @@ export default function CarrouselApp() {
     <>
       <Swiper
       slidesPerView={1}
-      slidesPerGroup={4}
+      slidesPerGroup={1}
       spaceBetween={30}
     
       autoplay={{
@@ -66,7 +66,7 @@ export default function CarrouselApp() {
       
     </>
         
-  )}
+  )} 
      
     
   

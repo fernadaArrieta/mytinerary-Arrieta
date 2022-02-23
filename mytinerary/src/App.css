@@ -10,20 +10,15 @@ body{
   flex-direction: column;
 }
 
-.imagen1{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-}
+
 .contenedor{
   position: relative;
   display: inline-block;
   text-align: center;
+  min-width: 972px !important
 }
 .cont-cities{
-  width: 100%;
+  width: 98vw;
   height: 100%;
   display: flex;
   align-items: center;
@@ -41,22 +36,11 @@ body{
   font-size: 30px;
   font-family:roboto;
   margin: 2rem;
+  
 }
 a{
   text-decoration: none !important;
   color: #fff;
 }
-.BotonCta{
-  position: absolute;
-  top: 19rem;
-  left: 35rem !important;
-  
-}
-.btnCta{
-  font-size: 25px !important;
-  color: aliceblue !important;
-  text-decoration: none !important;
- background-color:cadetblue !important ;
- box-shadow: #333 0.1em 0.1em 0.2em !important;
- text-shadow: #333 0.1em 0.1em 0.2em !important;
-}
+
+

@@ -11,8 +11,8 @@ export default function Hero(){
             <div className="contenido">
                 <div className="cta-col col1">
                     <div className="col-contenido">
-                        <h2>Find Your Perfect Trip</h2>
-                        <p>Inside who know and love their cities!!</p>
+                        <h2>MyTinerary</h2>
+                        <p>Find Your Perfect Trip Inside who know and love their cities!!</p>
                     </div>
                 </div>
                 <div className="cta-col col2">

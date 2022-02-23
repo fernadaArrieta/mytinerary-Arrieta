@@ -1,8 +1,14 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
 #app { height: 100% }
 html,
 body {
-  width: 100vw;
-  position: relative;
+  width: 100vw !important; 
   height: 100% !important;
 }
 
@@ -13,10 +19,11 @@ body {
   color: #000;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .swiper {
-  width: 100vw !important;
+  width: 95vw !important;
   height: 60vh !important;
   margin: 1rem;
 }
@@ -26,7 +33,7 @@ body {
   font-size: 18px;
   background: #fff;
 
-  /* Center slide text vertically */
+/*   Center slide text verticallyX */
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -44,7 +51,7 @@ body {
 
 .swiper-slide img {
   display: block;
-  width: 100% !important;
+  width: 95% !important;
   height: 100% !important;
   object-fit: cover;
 }
@@ -52,4 +59,4 @@ body {
   position: absolute;
   top: 20px;
   color: aliceblue !important;
-}
+} 

@@ -11,10 +11,8 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { NavLink } from "react-router-dom"
 
-
-const pages = ['Cities', ];
+const pages = ['Home', 'Cities'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
@@ -37,35 +35,19 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    
-    <AppBar position="static" sx={{backgroundColor:'#5D6D7E '}}>
-      <Container maxWidth="xl">
-        <Toolbar disableGutters >
+    <AppBar position="static">
+      <Container maxWidth="xl" sx={{backgroundColor:'#5D6D7E'}}>
+        <Toolbar disableGutters>
           <Typography
             variant="h6"
             noWrap
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-          > <Button
-          
-          onClick={handleCloseNavMenu}
-          sx={{ my: 2, color: 'white', display: 'block' }}
-        > <NavLink to= '/'>MYTINERARY
-        </NavLink>      
-         
-        </Button>
-          <Button
-          
-          onClick={handleCloseNavMenu}
-          sx={{ my: 2, color: 'white', display: 'block' }}
-        > <NavLink to= '/'>HOME</NavLink>      
-         
-        </Button>
-       
-          
+          >
+            MyTinerary
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none', } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -107,18 +89,16 @@ const ResponsiveAppBar = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
-            
-
+            MyTinerary
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-               <Button
+              <Button
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
-              > <NavLink to= '/cities'>{page}</NavLink>
-             
-               
+              >
+                {page}
               </Button>
             ))}
           </Box>
@@ -158,3 +138,4 @@ const ResponsiveAppBar = () => {
   );
 };
 export default ResponsiveAppBar;
+

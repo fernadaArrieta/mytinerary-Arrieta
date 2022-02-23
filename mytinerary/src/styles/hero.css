@@ -1,11 +1,16 @@
-
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body{
-width: 100vw;
+width: 100vw !important;
+min-height: 100%;
 
 }
 .seccion{
-    background: url(https://realestatemarket.com.mx/images/2020/04-Abril/0704/Aeromexico_registra_menos_viajes_en_marzo_1.gif) center no-repeat;
+    background: url(https://realestatemarket.com.mx/images/2020/04-Abril/0704/Aeromexico_registra_menos_viajes_en_marzo_1.gif)  center no-repeat;
     position: relative;
     overflow: hidden;    
     padding: 100px 30px;
@@ -17,15 +22,16 @@ width: 100vw;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    right: 0;
+    width: 90%;
     height: 100%;
 }
 .contenido{
     z-index: 1;
     position: relative;
-    max-width: 1200px;
+    max-width: 90%;
     margin: auto;
-    text-align: center;
+    text-align: center !important;
 
 }
 h2{
@@ -40,7 +46,7 @@ p{
 }
 @media(min-width:768px){
     .contenido{
-        text-align: left;
+        text-align: center !important;
     }
     .cta-col{
         min-height: 200px;
@@ -56,8 +62,8 @@ p{
         font-size: 50px;
         letter-spacing: 2px;
         font-family:roboto;
-        margin: 15px o;
-     cursor: ;
+        margin: 15px 0;
+     
     }
     p{
         line-height: 24px;
@@ -73,10 +79,10 @@ p{
         display:flex;
         align-items: center;
         justify-content: center;
-        box-shadow: #333 0.1em 0.1em 0.2em !important;
-        text-shadow: #333 0.1em 0.1em 0.2em !important;
+        box-shadow: black 0.1em 0.1em 0.2em !important;
+        text-shadow: black 0.1em 0.1em 0.2em !important;
         border:2px solid  #3b5775;
-        border-radius: 30px;
+        border-radius: 10px;
     }
     
 
