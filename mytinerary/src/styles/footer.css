@@ -27,10 +27,8 @@ body{
     font-size: 20px;
     color:aliceblue
 }
-.iconos{
-    width: 200px;
-    height: 200px;
-}
+
+
 
  @media(max-width:768px){
     .footerNav{
