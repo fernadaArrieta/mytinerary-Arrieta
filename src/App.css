@@ -4,8 +4,8 @@
   box-sizing: border-box;
 }
 body{
-  width: 100vw !important;
-  min-height: 100% !important;
+  width: 100% !important;
+  min-height: 100vh !important;
   display: flex;
   flex-direction: column;
 }
@@ -35,7 +35,8 @@ body{
   color:#5D6D7E ;
   font-size: 30px;
   font-family:roboto;
-  margin: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   
 }
 a{
@@ -43,6 +44,7 @@ a{
   color: #fff;
 }
 .card{
+  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -50,3 +52,23 @@ a{
   justify-content: center;
 }
 
+.divSearch{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.input {
+  width: 300px !important;
+  height: 150px;
+  margin-bottom: 3% !important;
+}
+.h1Search{
+  color: #5D6D7E;
+}
+.imgCard{
+  width: 350px;
+  height: 300px;
+  background-size: cover;
+
+}

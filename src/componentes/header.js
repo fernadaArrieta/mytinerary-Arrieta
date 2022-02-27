@@ -11,32 +11,33 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import {Link as LinkRouter} from "react-router-dom"
 
-const pages = ['Home', 'Cities'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
+/* const settings = ['Profile', 'Account', 'Dashboard', 'Logout']; */
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+/*   const [anchorElUser, setAnchorElUser] = React.useState(null);  */
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
+/*    const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
-  };
+  };  */
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+/*   const handleCloseUserMenu = () => {
+    setAnchorElUser(null); */
+  
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl" sx={{backgroundColor:'#5D6D7E'}}>
+    <AppBar position="static" className='navBar'  sx={{ width:"100%", backgroundColor:'#5D6D7E'}}>
+      <Container maxWidth="xl" sx={{ width:"100%", backgroundColor:'#5D6D7E'}}>
         <Toolbar disableGutters>
           <Typography
             variant="h6"
@@ -75,12 +76,16 @@ const ResponsiveAppBar = () => {
               sx={{
                 display: { xs: 'block', md: 'none' },
               }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              >
+              <MenuItem>
+               
+               <LinkRouter to="home" className='linkresp'><Typography textAlign="center">Home</Typography></LinkRouter>
                 </MenuItem>
-              ))}
+                <MenuItem>
+               <LinkRouter to="cities" className='linkresp'><Typography textAlign="center">Cities</Typography></LinkRouter> 
+                  
+                </MenuItem>
+            
             </Menu>
           </Box>
           <Typography
@@ -92,24 +97,33 @@ const ResponsiveAppBar = () => {
             MyTinerary
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
+              <LinkRouter to="home" className='link'>
+              <Button             
+                
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+               Home
               </Button>
-            ))}
+              </LinkRouter>
+              <LinkRouter to="cities" className='link'>
+              <Button             
+                
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+               Cities
+              </Button>
+              </LinkRouter>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              <IconButton /* onClick={handleOpenUserMenu} */ sx={{ p: 0 }}>
+              <Avatar src="/broken-image.jpg" />
               </IconButton>
             </Tooltip>
-            <Menu
+           {/*  <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
               anchorEl={anchorElUser}
@@ -130,8 +144,8 @@ const ResponsiveAppBar = () => {
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
-            </Menu>
-          </Box>
+            </Menu> */}
+              </Box> 
         </Toolbar>
       </Container>
     </AppBar>

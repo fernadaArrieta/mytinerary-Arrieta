@@ -36,16 +36,19 @@ export default function CarrouselApp() {
        
         breakpoints={{
           640: {
-            slidesPerView: 2,
+            slidesPerView: 4,
             spaceBetween: 20,
+            row:2
           },
           768: {
             slidesPerView: 4,
             spaceBetween: 40,
+            row: 2
           },
           1024: {
             slidesPerView: 4,
             spaceBetween: 40,
+            row:2
           },
         }}
     
@@ -57,7 +60,7 @@ export default function CarrouselApp() {
      >
         {datoCiudad.map(ciudad =>
         <SwiperSlide key={ciudad.id}>
-          <img src={ciudad.imagen}/>
+          <img src={ciudad.imagen} alt="ciudad"/>
           <h3 className="nombreCiudad">{ciudad.nombre}</h3>
         </SwiperSlide>
         
