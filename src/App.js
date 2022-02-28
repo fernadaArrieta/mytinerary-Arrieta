@@ -8,11 +8,9 @@ import Cities from "./componentes/cities"
 import Home from "./componentes/home"
 import Hero from "./componentes/hero"
 import axios from 'axios'
+import CardCiudad from './componentes/card';
 
 const App = () => {
-
-
- 
 
 
 
@@ -26,11 +24,10 @@ const App = () => {
 <Routes>
       
       <Route path='/' element={
-      <Home/>
-    
-    }/> 
+      <Home/> }/> 
     <Route path='*' element={<Home/>}/>
      <Route path='/cities' element= {<Cities/>}/>
+     <Route path ="/card/:id" element={<CardCiudad/>} /> 
    
 </Routes>
 <Footer/>

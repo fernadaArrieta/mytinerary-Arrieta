@@ -6,6 +6,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import {Link as LinkRouter} from "react-router-dom"
 
 
 
@@ -41,10 +42,13 @@ var data = filterCities.length>0 ? filterCities : props.inputSearch === "" ? api
                {datos.nombre}
               </Typography>
               <Typography variant="body2" color="dark">
-              {datos.pais}
-     
+              {datos.pais}     
               </Typography>
-            </CardContent>
+              <LinkRouter to={`/cities/${datos._id}`}><Button size="small" sx={{display:"flex", alignItems:"center", justifyContent:"center",textDecorationColor:"GrayText"}} className="botonCard">Details</Button></LinkRouter>
+              {/* <CardActions>        
+        <Button size="small" sx={{display:"flex", alignItems:"center", justifyContent:"center",textDecorationColor:"GrayText"}} className="botonCard">Learn More</Button>
+      </CardActions>*/}
+            </CardContent> 
             </Card>     
             )}    
        
