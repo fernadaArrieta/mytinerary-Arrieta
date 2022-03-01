@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-
+import {Link as LinkRouter} from "react-router-dom"
 import CardCiudad from './card';
  import axios from 'axios';
  
@@ -18,8 +18,7 @@ import CardCiudad from './card';
         <label htmlFor="filter"></label>
        <input onKeyUp={(event)=>setInput(event.target.value)} placeholder="Type a city here..."></input>
        <CardCiudad input={input}/>
-     </div>
-     </div>
+     </div></div>
      );
  }
 

@@ -18,7 +18,7 @@ export default function Hero(){
                 <div className="cta-col col2">
                     <div className="col-contenido">
                         <div className="btn-holder">
-                           <NavLink to='/cities' className="cta-btn"><bottom>Cities</bottom></NavLink>
+                           <NavLink to='/cities' className="cta-btn"><bottom>View all cities here!</bottom></NavLink>
                         </div>
                     </div>
            </div>

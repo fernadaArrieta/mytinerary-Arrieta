@@ -9,6 +9,7 @@ import Home from "./componentes/home"
 import Hero from "./componentes/hero"
 import axios from 'axios'
 import CardCiudad from './componentes/card';
+import CardDetalle from './componentes/cardDetalle'
 
 const App = () => {
 
@@ -27,9 +28,10 @@ const App = () => {
       <Home/> }/> 
     <Route path='*' element={<Home/>}/>
      <Route path='/cities' element= {<Cities/>}/>
-     <Route path ="/card/:id" element={<CardCiudad/>} /> 
-   
+     <Route path ='/cities/:id' element={<CardDetalle/>} /> 
+     
 </Routes>
+
 <Footer/>
 </BrowserRouter>
    
