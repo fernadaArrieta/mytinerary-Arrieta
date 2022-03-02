@@ -37,11 +37,11 @@ var data = filterCities.length>0 ? filterCities : props.inputSearch === "" ? api
          <div className='card'  >
          {data.length>0 ? 
            data.map(datos=>(
-             <Card key={datos.id} sx={{ width: 340, margin:3 }} className="contCard">                     
+             <Card key={datos._id} sx={{ width: 340, margin:3 }} className="contCard">                     
             <img src={datos.imagen} alt="foto-ciudad" className="imgCard"/> 
               
             
-            <CardContent sx={{display:"flex",flexDirection:"column", alignItems:"center", justifyContent:"center" }}>
+            <CardContent  sx={{display:"flex",flexDirection:"column", alignItems:"center", justifyContent:"center" }}>
               <Typography gutterBottom variant="h5" component="div">
                {datos.nombre}
               </Typography>

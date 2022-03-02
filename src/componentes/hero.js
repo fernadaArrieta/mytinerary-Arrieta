@@ -11,14 +11,14 @@ export default function Hero(){
             <div className="contenido">
                 <div className="cta-col col1">
                     <div className="col-contenido">
-                        <h2>MyTinerary</h2>
+                        <h2 sx={{color:"#026197"}}>MyTinerary</h2>
                         <p>Find Your Perfect Trip Inside who know and love their cities!!</p>
                     </div>
                 </div>
                 <div className="cta-col col2">
                     <div className="col-contenido">
                         <div className="btn-holder">
-                           <NavLink to='/cities' className="cta-btn"><bottom>View all cities here!</bottom></NavLink>
+                           <NavLink to='/cities' className="cta-btn"><h5>View all cities here!</h5></NavLink>
                         </div>
                     </div>
            </div>

@@ -36,8 +36,8 @@ const ResponsiveAppBar = () => {
   
 
   return (
-    <AppBar position="static" className='navBar'  sx={{ width:"100%", backgroundColor:'cadetblue'}}>
-      <Container maxWidth="xl" sx={{ width:"100%", backgroundColor:'cadetblue'}}>
+    <AppBar position="static" className='navBar'  sx={{ width:"100%", backgroundColor:'#b4afae9c'}}>
+      <Container maxWidth="xl" sx={{ width:"100%", backgroundColor:'#b4afae9c'}}>
         <Toolbar disableGutters>
           <Typography
             variant="h6"

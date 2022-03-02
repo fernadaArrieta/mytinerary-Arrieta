@@ -45,6 +45,7 @@ a{
 }
 .card{
   width: 100%;
+  margin-top: 2rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -53,6 +54,7 @@ a{
 }
 
 .divSearch{
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,11 +62,12 @@ a{
 }
 .input {
   width: 300px !important;
-  height: 150px;
+  height: 150px !important;
   margin-bottom: 3% !important;
 }
 .h1Search{
   color: #5D6D7E;
+  margin-top: 2rem;
 }
 .imgCard{
   width: 350px;
@@ -110,4 +113,13 @@ a{
 .btnDetalle:hover{
   color: #2f455d ;
   background-color: aquamarine;
+}
+
+.h1detalles{  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  color:#3b5775;
 }

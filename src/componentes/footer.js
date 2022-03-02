@@ -16,7 +16,7 @@ function Footer(){
         </ul>
         <ul className="direcciones">
             <li>🏪Direccion: M.Moreno 3217 Cdad.Mendoza</li>
-            <li> ☏Tel:2615000678</li>
+            <li> 📞Tel:2615000678</li>
     
         </ul>
    
