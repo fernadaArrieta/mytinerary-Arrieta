@@ -6,7 +6,9 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import CardDetalle from './cardDetalle';
 import {Link as LinkRouter} from "react-router-dom"
+
 
 
 
@@ -31,9 +33,11 @@ var data = filterCities.length>0 ? filterCities : props.inputSearch === "" ? api
 
    return(
   
+    <>
          <div className='card'  >
-           {data?.map(datos=> 
-             <LinkRouter to={`/cities/${datos._id}`}><Card key={datos.id} sx={{ width: 340, margin:3 }} className="contCard">                     
+         {data.length>0 ? 
+           data.map(datos=>(
+             <Card key={datos.id} sx={{ width: 340, margin:3 }} className="contCard">                     
             <img src={datos.imagen} alt="foto-ciudad" className="imgCard"/> 
               
             
@@ -49,12 +53,17 @@ var data = filterCities.length>0 ? filterCities : props.inputSearch === "" ? api
         <Button size="small" sx={{display:"flex", alignItems:"center", justifyContent:"center",textDecorationColor:"GrayText"}} className="botonCard">Learn More</Button>
       </CardActions>*/}
             </CardContent> 
-            </Card>  </LinkRouter>   
-            )}    
+            </Card> 
+              
+            ) )
+            :<CardDetalle/> 
+            
+           
+     } 
        
         
       
-       </div>
+       </div></>
        );
        }
      
