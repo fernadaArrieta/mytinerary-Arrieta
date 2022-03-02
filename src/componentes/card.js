@@ -12,15 +12,16 @@ import {Link as LinkRouter} from "react-router-dom"
 
 
 
+
 export default function CardCiudad(props){
    
    const [apiData, setApiData ]= useState([]) 
   
   
-    useEffect(()=>{
-      axios.get(`http://localhost:4000/api/cities/`)
+    //useEffect(()=>{
+     /*  axios.get(`http://localhost:4000/api/cities/`)
    .then(respuesta=>console.log(respuesta.data.response.ciudades))
-   },[])
+   },[]) */
 
    const [filterCities, setFilterCiudad] = useState([])
   
@@ -48,7 +49,7 @@ var data = filterCities.length>0 ? filterCities : props.inputSearch === "" ? api
               <Typography variant="body2" color="dark">
               {datos.pais}     
               </Typography>
-              <LinkRouter to={`/cities/${datos._id}`}><Button size="small" sx={{display:"flex", alignItems:"center", justifyContent:"center",textDecorationColor:"GrayText"}} className="botonCard">Details</Button></LinkRouter>
+              <LinkRouter to={`/detail/${datos._id}`}><Button size="small" sx={{display:"flex", alignItems:"center", justifyContent:"center",textDecorationColor:"GrayText"}} className="botonCard">Details</Button></LinkRouter>
               {/* <CardActions>        
         <Button size="small" sx={{display:"flex", alignItems:"center", justifyContent:"center",textDecorationColor:"GrayText"}} className="botonCard">Learn More</Button>
       </CardActions>*/}

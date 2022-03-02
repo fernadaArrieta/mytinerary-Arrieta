@@ -124,3 +124,24 @@ a{
   color:#3b5775;
 }
 
+.contenDetalle{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cardD{
+  width: 350px;
+  height: 400px;
+}
+
+.textoCard{
+  margin-top: 8rem;
+  color: #2f455d;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

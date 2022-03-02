@@ -10,7 +10,7 @@ import Hero from "./componentes/hero"
 import axios from 'axios'
 import CardCiudad from './componentes/card';
 import CardDetalle from './componentes/cardDetalle'
-
+import CiudadDetalle from './componentes/cityDetalle'
 
 const App = () => {
 
@@ -29,7 +29,8 @@ const App = () => {
       <Home/> }/> 
     <Route path='*' element={<Home/>}/>
      <Route path='/cities' element= {<Cities/>}/>
-     <Route path ='/city' element={<CardDetalle/>} /> 
+     <Route path ='/city' element={<CardDetalle/>} />
+    <Route path='/detail/:id' element={<CiudadDetalle/>}/> 
      
 </Routes>
 
