@@ -132,6 +132,12 @@ a{
   align-items: center;
   justify-content: center;
 }
+.CardSola{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .cardD{
   width: 350px;
   height: 400px;
@@ -142,6 +148,8 @@ a{
   color: #2f455d;
   font-size: 20px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
