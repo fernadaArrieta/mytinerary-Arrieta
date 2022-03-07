@@ -6,7 +6,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import CardDetalle from './cardDetalle';
+import CardDetalle from './itineraries';
 import {Link as LinkRouter} from "react-router-dom"
 
 
@@ -35,7 +35,7 @@ var data = filterCities.length>0 ? filterCities : props.inputSearch === "" ? api
    return(
   
     <>
-         <div className='card'  >
+        {/*  <div className='card'  >
          {data.length>0 ? 
            data.map(datos=>(
              <Card key={datos._id} sx={{ width: 340, margin:3 }} className="contCard">                     
@@ -49,11 +49,11 @@ var data = filterCities.length>0 ? filterCities : props.inputSearch === "" ? api
               <Typography variant="body2" color="dark">
               {datos.pais}     
               </Typography>
-              <LinkRouter to={`/detail/${datos._id}`}><Button size="small" sx={{display:"flex", alignItems:"center", justifyContent:"center",textDecorationColor:"GrayText"}} className="botonCard">Details</Button></LinkRouter>
+              <LinkRouter to={`/detail/${datos._id}`}><Button size="small" sx={{display:"flex", alignItems:"center", justifyContent:"center",textDecorationColor:"GrayText"}} className="botonCard">Details</Button></LinkRouter> */}
               {/* <CardActions>        
         <Button size="small" sx={{display:"flex", alignItems:"center", justifyContent:"center",textDecorationColor:"GrayText"}} className="botonCard">Learn More</Button>
       </CardActions>*/}
-            </CardContent> 
+     {/*        </CardContent> 
             </Card> 
               
             ) )
@@ -64,7 +64,9 @@ var data = filterCities.length>0 ? filterCities : props.inputSearch === "" ? api
        
         
       
-       </div></>
+      </div> */}
+      <CardDetalle/> 
+      </>
        );
        }
      

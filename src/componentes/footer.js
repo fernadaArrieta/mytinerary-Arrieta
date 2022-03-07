@@ -24,7 +24,7 @@ function Footer(){
           <img className={"Facebook"} src={twiter} alt="twiter"  />           
         </div>
         <ul className="direcciones">
-            <li>🏪Direccion: M.Moreno 3217 Cdad.Mendoza</li>
+            <li>🏪Location: M.Moreno 3217 Cdad.Mendoza</li>
             <li> 📞Tel:2615000678</li>
     
         </ul>   

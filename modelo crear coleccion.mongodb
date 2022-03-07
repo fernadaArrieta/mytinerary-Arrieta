@@ -1,0 +1,52 @@
+let database = 'myTinerary'; //nombre de la base de datos
+const collection = 'tineraries'; //nombre de la nueva coleccion
+
+
+
+
+use(database); //"usamos" la base de datos, si no existe: la crea
+db.createCollection(collection); //creamos una nueva coleccion
+
+// The prototype form to create a collection:
+db.tineraries.insertMany([
+ 
+ {"city": "Amsterdam",
+    "userPhoto": "https://img.freepik.com/foto-gratis/retrato-joven-sonriente-gafas_171337-4842.jpg",
+    "userName": "Oliver Brown",
+    "name": "Hard Rock Coffe Amsterdam",
+     "price": "1", 
+     "time": "2hs",
+    "tags": ["#beer","#drink","#hardRock","#amsterdam"],
+    "description": "Rock chain with a lively atmosphere offering burgers and American classics..",
+    "comments": []},
+ 
+    {"city": "Amsterdam",
+    "userPhoto": "https://estudiantes.ucontinental.edu.pe/wp-content/uploads/2020/09/Madurez-emocional-7.jpg",
+    "userName": "Emily Taylor",
+    "name": "Ana Frank Tour",
+     "price": "2", 
+     "time": "2hs",
+    "tags": ["#history","#AnaFrank","#amsterdam"],
+    "description": "I was able to enjoy the tour and The Story of Anne Frank which describes the period in which she, her family and four other people were in hiding during the German occupation of Amsterdam...",
+    "comments": []},
+
+     {"city": "San Francisco",
+    "userPhoto": "http://travelinguapracticas.files.wordpress.com/2012/11/california2010hr.jpg",
+    "userName": "Amelia Williams",
+    "name": "Nacional Park Yosemite Tour",
+     "price": "2", 
+     "time": "4hs",
+    "tags": ["#Park","#picknick","#freshAir"],
+    "description": "Yosemite National Park is best known for its waterfalls, but within its nearly 1,200 square miles, you can find deep valleys...",
+    "comments": []},
+
+     {"city": "San Francisco",
+    "userPhoto": "https://ath2.unileverservices.com/wp-content/uploads/sites/5/2019/05/istock-585591242-683x1024.jpg",
+    "userName": "Harry Davies",
+    "name": "Alcatraz Tour",
+     "price": "3", 
+     "time": "3hs",
+    "tags": ["#alcatraz","#prision"],
+    "description": "In July we were in San Francisco and we took the excursion to Alcatraz, highly recommended, from the short ferry ride to the prison itself...",
+    "comments": []},
+])
