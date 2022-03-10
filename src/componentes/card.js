@@ -8,65 +8,88 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import CardDetalle from './itineraries';
 import {Link as LinkRouter} from "react-router-dom"
+import { connect } from 'react-redux'
+import citiesActions from '../redux/actions/citiesActions'
 
 
 
 
 
-export default function CardCiudad(props){
-   
-   const [apiData, setApiData ]= useState([]) 
+const CardCiudad=(props)=>{
+  const[filter,setFilter]= useState("")
+  useEffect(()=>{
+  props.getCities()
+},[])
+  console.log(props)
   
-  
-    //useEffect(()=>{
-     /*  axios.get(`http://localhost:4000/api/cities/`)
-   .then(respuesta=>console.log(respuesta.data.response.ciudades))
-   },[]) */
+  const datos= props.cities
+  console.log(props.cities)
+  if (!props.cities){
+    return(<h1></h1>)
+  }
 
-   const [filterCities, setFilterCiudad] = useState([])
-  
-   useEffect(()=>{
-    axios.get(`http://localhost:4000/api/cities/`)
-    .then(response =>setFilterCiudad(response.data.response.ciudades.filter(cities => cities.nombre.toLowerCase().startsWith(props.input.toLowerCase().trim()))))
-},[props.input])
 
-var data = filterCities.length>0 ? filterCities : props.inputSearch === "" ? apiData : []
+const search= (event)=>{
+  setFilter(event.target.value)
+  props.filterCities(event.target.value,props.cities)
+}
+console.log(props.filterCitiess)
 
    return(
+ <> 
   
-    <>
-        {/*  <div className='card'  >
-         {data.length>0 ? 
-           data.map(datos=>(
-             <Card key={datos._id} sx={{ width: 340, margin:3 }} className="contCard">                     
-            <img src={datos.imagen} alt="foto-ciudad" className="imgCard"/> 
+   <div className="divSearch">
+   <h1 className="h1Search" >Search for a City</h1>
+        <label htmlFor="filter"></label>
+ <input value={filter} onChange={search} placeholder="Type a city here..."/></div>
+    
+        <div className='card'  >
+
+          
+         {props.filterCitiess.length>0 ?
+         props.filterCitiess.map(cadaDato=>
+             <Card key={cadaDato._id} sx={{ width: 340, margin:3 }} className="contCard">                     
+            <img src={cadaDato.imagen} alt="foto-ciudad" className="imgCard"/> 
               
             
             <CardContent  sx={{display:"flex",flexDirection:"column", alignItems:"center", justifyContent:"center" }}>
               <Typography gutterBottom variant="h5" component="div">
-               {datos.nombre}
+               {cadaDato.nombre}
               </Typography>
               <Typography variant="body2" color="dark">
-              {datos.pais}     
+              {cadaDato.pais}     
               </Typography>
-              <LinkRouter to={`/detail/${datos._id}`}><Button size="small" sx={{display:"flex", alignItems:"center", justifyContent:"center",textDecorationColor:"GrayText"}} className="botonCard">Details</Button></LinkRouter> */}
-              {/* <CardActions>        
+              <LinkRouter to={`/detail/${cadaDato._id}`}><Button size="small" sx={{display:"flex", alignItems:"center", justifyContent:"center",textDecorationColor:"GrayText"}} className="botonCard">Details</Button></LinkRouter> 
+              <CardActions>        
         <Button size="small" sx={{display:"flex", alignItems:"center", justifyContent:"center",textDecorationColor:"GrayText"}} className="botonCard">Learn More</Button>
-      </CardActions>*/}
-     {/*        </CardContent> 
+      </CardActions>
+            </CardContent> 
             </Card> 
               
-            ) )
-            :<CardDetalle/> 
-            
-           
-     } 
-       
-        
+            ):<h2></h2>
+} 
+                    
+               
       
-      </div> */}
-      <CardDetalle/> 
+      
+      </div> 
       </>
-       );
-       }
      
+       );
+  }
+ 
+  const mapDispatchToProps ={
+getCities:citiesActions.getCities,
+filterCities: citiesActions.filterCities
+
+  }
+
+  const mapStateToProps=(state)=>{
+   return{
+     cities:state.citiesReducers.cities,
+     auxiliar: state.citiesReducers.auxiliar,
+     filterCitiess:state.citiesReducers.filterCities,
+   }
+
+  }
+  export default connect (mapStateToProps, mapDispatchToProps)(CardCiudad);

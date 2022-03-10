@@ -1,22 +1,23 @@
-const { DoNotDisturbOnTotalSilenceRounded } = require('@mui/icons-material');
+
 var mongoose = require('mongoose');
 
-var Schema = mongoose.Schema;
+/* var Schema = mongoose.Schema; */
 
-var itinerarySchema = new Schema({
+const itinerarySchema = new mongoose.Schema({
     
-    city: String,
-    userPhoto: String,
-    username: String,
-    name:String,
-    price: String,   
-    time: Number,   
-    tags: Array,
-    description: String,    
-    comments: Array,
+    city: {type:String,required:true},
+    userPhoto: {type:String,required:true},
+    username: {type:String,required:true},
+    name: {type:String,required:true},
+    price:{type:String,required:true},   
+    time:{type:Number,required:true},   
+    tags:{type:Array, required:true},
+    description:{type:String,required:true},    
+    comments: {type:Array,required:true},
+    cityId: { type: mongoose.Schema.Types.ObjectId, ref: "ciudades" }
     
 });
 
-var tinerary = mongoose.model('tineraries', itinerarySchema);
+var Tinerary = mongoose.model('tineraries', itinerarySchema);
 
-module.exports = tinerary;
+module.exports = Tinerary;

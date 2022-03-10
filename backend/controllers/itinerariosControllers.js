@@ -1,4 +1,4 @@
-const Itinerary = require('../models/itinerarios')
+const Tinerary = require('../models/itinerarios')
 
 const tineraryController = {
 
@@ -7,7 +7,7 @@ const tineraryController = {
         let error = null
 
         try{
-            itinerarios = await Itinerary.find()
+            itinerarios = await Tinerary.find()
         }catch(err){
             error = err
             console.log(error)
@@ -22,7 +22,7 @@ const tineraryController = {
     cargarItinerario: async(req,res)=>{
         console.log(req.body)
         const {city, userPhoto, userName,name, price, time, tags, description, comments} = req.body.dataInput
-        new Itinerary({city:city, 
+        new Tinerary({city:city, 
                      userPhoto:userPhoto,
                      userName: userName,
                      name:name,
@@ -37,14 +37,14 @@ const tineraryController = {
         const id = req.params.id
         
 
-           await Itinerary.findOneAndDelete({_id:id})
+           await Tinerary.findOneAndDelete({_id:id})
 
     },
     modificarItinerario: async (req, res)=>{
         const id = req.params.id
-        const itineray = req.body.dataInput
+        const itinerary = req.body.dataInput
 
-        let tinerarydb = await Itinerary.findOneAndUpdate({_id:id}, itinerary)
+        let tinerarydb = await Tinerary.findOneAndUpdate({_id:id}, itinerary)
          console.log(tinerarydb)
 
     },
@@ -55,7 +55,7 @@ const tineraryController = {
         let error = null
 
         try{
-            tinerario = await Itinerary.findOne({_id:id})
+            tinerario = await Tinerary.findOne({_id:id})
         }catch(err){
             error = err
             console.log(error)
