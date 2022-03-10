@@ -169,7 +169,7 @@ a{
 /* ITINERARIOS */
 .contTinerary{
   width: 60%;
-  background-color: beige;
+  background-color: rgba(207, 248, 235, 0.438);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -232,4 +232,30 @@ a{
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+@media(min-width:768px){
+
+  .cont-contenido{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+}
+@media(max-width:768px){
+  .cont-contenido{
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+ .nombreUsuario{
+  font-size: 12px;
+   text-align: center;
+ }
+ .bodyTinerary{
+   width: auto;
+ }
 }
