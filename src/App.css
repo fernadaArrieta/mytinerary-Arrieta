@@ -168,10 +168,10 @@ a{
 
 /* ITINERARIOS */
 .contTinerary{
-  width: 60%;
+  width: 70%;  
   background-color: rgba(207, 248, 235, 0.438);
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
   align-items: center;
   justify-content:center;
   margin-top: 4rem;
@@ -190,12 +190,16 @@ a{
   text-align: center;
   color: #2f455d;
   font-family: roboto;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
 }
 .cont-contenido{
-  display: flex;  
+  width:100%;
+  height: 60vh;
+  display: flex; 
+  flex-direction: row; 
   align-items: center;
   justify-content: space-around;
+
  
 }
 .headerTinerary{
@@ -227,12 +231,21 @@ a{
 .iconPrice{
   display: flex;
 }
-.bodyTinerary{
+
+.bodyUnder{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:#3b5775;
+}
+/* .bodyTinerary{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
+} */
 @media(min-width:768px){
 
   .cont-contenido{
@@ -243,7 +256,7 @@ a{
   }
 
 }
-@media(max-width:768px){
+/* @media(min-width:400px){
   .cont-contenido{
     width: 100%;
     display:flex;
@@ -258,4 +271,4 @@ a{
  .bodyTinerary{
    width: auto;
  }
-}
+} */

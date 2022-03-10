@@ -11,11 +11,11 @@ import SelectVariants from "./droptow";
         
     }
     return(
-        <div className="bodyTinerary">
-        <div className="contTinerary">
-        <h1 className="tituloTineray">{itinerario.name}</h1>
-
+       
+       <div className="bodyTinerary">
+        <div className="contTinerary">     
         <div className="cont-contenido">
+        <h1 className="tituloTineray">{itinerario.name}</h1>
           <div className="headerTinerary">
             <img
               className="fotoUsuario"

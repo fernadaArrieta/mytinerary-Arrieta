@@ -23,7 +23,7 @@ function CardDetalle(props) {
      {
        itineraries.length>0 
        ? itineraries.map(itinerario=><DetalleTinerary itinerario={itinerario}/>)
-       :<h2>We still do not have guides in this city, we are looking for!</h2>
+       :<h2 className="bodyUnder">We still do not have guides in this city, we are looking for!</h2>
      }
      
 
