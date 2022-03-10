@@ -11,6 +11,7 @@ import SelectVariants from "./droptow";
         
     }
     return(
+        <div className="bodyTinerary">
         <div className="contTinerary">
         <h1 className="tituloTineray">{itinerario.name}</h1>
 
@@ -35,7 +36,7 @@ import SelectVariants from "./droptow";
                 
             }</div>
             
-            <p className="textoTinerary">duracion:</p>
+            <p className="textoTinerary">🕓{itinerario.time}hs</p>
             <div className="iconPrice">
             {
                 itinerario.tags.map(tag=><p className="textoTinerary" key={tag}>{tag}</p>)
@@ -46,7 +47,7 @@ import SelectVariants from "./droptow";
         <div className="btnDrop">
           <SelectVariants />
         </div>
-      </div>
+      </div></div>
     )
 }
 export default DetalleTinerary
