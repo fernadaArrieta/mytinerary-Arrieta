@@ -55,13 +55,13 @@ const tineraryController = {
         let error = null
 
         try{
-            tinerario = await Tinerary.findOne({_id:id})
+            tinerario = await Tinerary.find({cityId:id})
         }catch(err){
             error = err
             console.log(error)
         }
         res.json({
-            response: error ? 'ERROR' : {tinerario}, 
+            response: error ? 'ERROR' : tinerario, 
             success: error ? false : true,
             error: error
         })  

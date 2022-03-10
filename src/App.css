@@ -222,3 +222,6 @@ a{
   font-size: 20px;
   color: #5D6D7E;
 }
+.iconPrice{
+  display: flex;
+}

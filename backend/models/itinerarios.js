@@ -14,7 +14,7 @@ const itinerarySchema = new mongoose.Schema({
     tags:{type:Array, required:true},
     description:{type:String,required:true},    
     comments: {type:Array,required:true},
-    cityId: { type: mongoose.Schema.Types.ObjectId, ref: "ciudades" }
+    cityId: { type: mongoose.Schema.Types.ObjectId, ref: "cities" }
     
 });
 
