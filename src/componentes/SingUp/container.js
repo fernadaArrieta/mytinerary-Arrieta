@@ -1,6 +1,6 @@
 import React from "react";
-import SignUp from "./signup";
-import SignIn from "./signin";
+import SignUp from "./SignUp";
+import SignIn from "./SignIn";
 import { connect } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import userActions from '../../redux/actions/userActions';
@@ -9,6 +9,7 @@ import userActions from '../../redux/actions/userActions';
 function Container(props) {
 
 	function SignOut() {
+		
 		props.SignOutUser(props.user.email)
 	}
 

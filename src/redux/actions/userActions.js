@@ -15,6 +15,7 @@ const userActions = {
 
         return async (dispatch, getState) => {
             const user = await axios.post('http://localhost:4000/api/auth/signin', { logedUser })
+            console.log(user)
             if(user.data.success){
             dispatch({type: 'user', payload: user.data.response.userData});
             }else{console.log(user.data.message)}

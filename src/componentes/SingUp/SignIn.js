@@ -10,11 +10,12 @@ import userActions from '../../redux/actions/userActions';
 	const handleSubmit = (event) => {
 		event.preventDefault()
 		const logedUser = {
-			email: event.target[0].value,
-			password: event.target[1].value,
+			email: event.target[1].value,
+			password: event.target[3].value,
 			from: "form-Signin"
 		}
 		props.signInUser(logedUser)
+  
 	}
 
     return(
@@ -26,7 +27,7 @@ import userActions from '../../redux/actions/userActions';
     </fieldset>
     <fieldset>
       <label htmlFor="contraseña">Password</label>
-      <input type="text" id="contraseña" name="contraseña" />
+      <input type="password" id="contraseña" name="contraseña" />
     </fieldset>
     <div className="botonSubmit">
           <button className="btn-continuar" type="submit">Sing In</button>

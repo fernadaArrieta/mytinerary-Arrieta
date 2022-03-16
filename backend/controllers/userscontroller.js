@@ -100,9 +100,10 @@ const usersControllers = {
   },
   signInUser: async (req, res) => {
     const { email, password, from } = req.body.logedUser;
+    
     try {
       const usuarioExiste = await User.findOne({ email });
-
+console.log(usuarioExiste)
       if (!usuarioExiste) {
         // PRIMERO VERIFICA QUE EL USUARIO EXISTA
         res.json({
@@ -116,7 +117,7 @@ const usersControllers = {
           );
 
           if (contraseñaCoincide.length > 0) {
-            //TERERO VERIFICA CONTRASEÑA
+            //TECERO VERIFICA CONTRASEÑA
 
             const userData = {
               firstName: usuarioExiste.firstName,
@@ -149,6 +150,7 @@ const usersControllers = {
             );
             if (contraseñaCoincide.length > 0) {
               const userData = {
+                id:usuarioExiste._id,
                 firstName: usuarioExiste.firstName,
                 email: usuarioExiste.email,
                 from: usuarioExiste.from,

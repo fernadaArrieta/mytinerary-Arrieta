@@ -2,7 +2,9 @@ import { propTypes } from "react-bootstrap/esm/Image";
 import "./StylesForm.css";
 import { Link as LinkRouter } from "react-router-dom";
 import userActions from "../../redux/actions/userActions";
-import { connect } from 'react-redux';                
+import { connect } from 'react-redux';  
+import React, { useEffect, useState } from "react";
+import axios from "axios";              
                     
    
       
@@ -14,21 +16,26 @@ import { connect } from 'react-redux';
   const handleSubmit = (event) => {
     event.preventDefault()
     const userData = {
-      firstName: event.target[0].value,
-      lastName: event.target[1].value,
-      email: event.target[2].value,
-      password: event.target[3].value,
-      profilePicture: event.target[4].value,
-      selectCountry: event.target[5].value,
+      firstName: event.target[1].value,
+      lastName: event.target[3].value,
+      email: event.target[5].value,
+      password: event.target[7].value,
+      profilePicture: event.target[9].value,
+      selectCountry: event.target[11].value,
       from: "form-Signup",
     };
     props.signUpUser(userData);
     
+    console.log(userData)
   };
+  const [countries, setCountries] = useState(["Choose your country"]);
+   console.log(props.message)  
   
-  console.log(props.message) 
-  
- 
+  useEffect(() => {
+    axios
+      .get("https://restcountries.com/v2/all?fields=name")
+      .then((res) => setCountries(res.data));
+  }, []);
 
   return (
     <div className="contenedorForm">
@@ -54,7 +61,7 @@ import { connect } from 'react-redux';
           </fieldset>
           <fieldset>
             <label htmlFor="password">Password</label>
-            <input type="text" id="password" name="password" />
+            <input type="password" id="password" name="password" />
           </fieldset>
           <fieldset>
             <label htmlFor="profilePicture">Profile Picture</label>
@@ -68,42 +75,12 @@ import { connect } from 'react-redux';
           <fieldset>
             <label htmlFor="selectCountry"> Choose your Country</label>
             <select name="selectCountry" id="selectCountry">
-              <option value="nada"></option>
-              <option value="Afghanistan"> Afghanistan</option>
-              <option value="Albania">Albania</option>
-              <option value="Algeria">Algeria</option>
-              <option value="otro">American Samoa</option>
-              <option value="otro">Andorra</option>
-              <option value="otro">Angola</option>
-              <option value="otro">Anguilla</option>
-              <option value="otro">Antartica</option>
-              <option value="otro">Argentina</option>
-              <option value="otro">Armenia </option>
-              <option value="otro">Aruba</option>
-              <option value="otro">Australia </option>
-              <option value="otro">Austria</option>
-              <option value="otro">Azerbaijan</option>
-              <option value="otro">Bahamas, The </option>
-              <option value="otro">Bahrain</option>
-              <option value="otro">Bangladesh</option>
-              <option value="otro">Bangladesh</option>
-              <option value="otro">Barbados</option>
-              <option value="otro">Bassas da India</option>
-              <option value="otro">Belarus</option>
-              <option value="otro">Belgium</option>
-              <option value="otro">Belize</option>
-              <option value="otro">Bermuda</option>
-              <option value="otro">Bolivia</option>
-              <option value="otro">Brazil</option>
-              <option value="otro">Bulgaria</option>
-              <option value="otro">Cambodia</option>
-              <option value="otro">Cameroon</option>
-              <option value="otro">Canada </option>
-              <option value="otro">Cape Verde</option>
-              <option value="otro">Central African Republic</option>
-              <option value="otro">Chile</option>
-              <option value="otro">China</option>
-              <option value="otro">Colombia </option>
+              <option defaultValue="Choose your country"></option>
+              {countries.map((country, index) => (
+                          <option key={index} value={country.name}>
+                            {country.name}
+                          </option>
+                        ))}              
             </select>
           </fieldset>
           <div className="botonSubmit">
