@@ -3,19 +3,20 @@
     padding: 0;
     box-sizing: border-box;
 }
-body{
+/* body{
     width: 100% !important;
     min-height: 100vh !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-end !important;
+
     
    
 }
 main{
     width: 100%;
     height: 100%;
-}
+} */
 
 
 .footerNav{
@@ -24,8 +25,9 @@ main{
     justify-content: space-around;   
     width: 100%;
     height: 250px;
-    background-color:#b4afae9c;
-    padding: 2rem;
+    background-image: radial-gradient(circle at 50% -20.71%, #a4d8ec 0, #a7d7ef 6.25%, #abd6f1 12.5%, #b0d5f3 18.75%, #b5d3f4 25%, #bbd2f4 31.25%, #c1d0f4 37.5%, #c7cff3 43.75%, #cdcdf2 50%, #d3cbf0 56.25%, #d9caed 62.5%, #dec8ea 68.75%, #e3c7e7 75%, #e8c6e3 81.25%, #ecc5df 87.5%, #efc4da 93.75%, #f2c4d6 100%);
+    padding-left: 2rem;
+    padding-right: 2rem;
     
 }
 .navFooter{
@@ -33,7 +35,7 @@ main{
     font-size: 20px;
 }
 .direcciones{
-    
+
     font-size: 20px;
     color:aliceblue
 }

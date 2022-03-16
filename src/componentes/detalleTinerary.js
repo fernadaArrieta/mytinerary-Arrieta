@@ -2,6 +2,7 @@ import React from "react";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import SelectVariants from "./droptow";
+import SimpleAccordion from "./droptow";
 
   function DetalleTinerary({itinerario}){
 
@@ -45,7 +46,7 @@ import SelectVariants from "./droptow";
           </div>
         </div>
         <div className="btnDrop">
-          <SelectVariants />
+          <SimpleAccordion />
         </div>
       </div></div>
     )

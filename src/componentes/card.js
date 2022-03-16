@@ -41,7 +41,7 @@ console.log(props.filterCitiess)
    <div className="divSearch">
    <h1 className="h1Search" >Search for a City</h1>
         <label htmlFor="filter"></label>
- <input value={filter} onChange={search} placeholder="Type a city here..."/></div>
+ <input className="inputSearch" value={filter} onChange={search} placeholder="Type a city here..."/></div>
     
         <div className='card'  >
 
@@ -61,7 +61,7 @@ console.log(props.filterCitiess)
               </Typography>
               <LinkRouter to={`/detail/${cadaDato._id}`}><Button size="small" sx={{display:"flex", alignItems:"center", justifyContent:"center",textDecorationColor:"GrayText"}} className="botonCard">Details</Button></LinkRouter> 
               <CardActions>        
-        <Button size="small" sx={{display:"flex", alignItems:"center", justifyContent:"center",textDecorationColor:"GrayText"}} className="botonCard">Learn More</Button>
+      
       </CardActions>
             </CardContent> 
             </Card> 

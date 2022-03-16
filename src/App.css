@@ -60,11 +60,7 @@ a{
   align-items: center;
   justify-content: center;
 }
-.input {
-  width: 300px !important;
-  height: 150px !important;
-  margin-bottom: 3% !important;
-}
+
 .h1Search{
   color: #5D6D7E;
   margin-top: 2rem;
@@ -164,6 +160,15 @@ a{
   color: #2f455d;
   font-size: 20px;
   text-align: center;
+}
+.inputSearch {
+  width: 30%;
+  height: 2rem;
+  padding: 4px 12px;
+  border: 1px solid #2f455d;
+  border-radius: 3px;
+  background-color: #f6f6f6;
+  margin: 8px 0;
 }
 
 /* ITINERARIOS */

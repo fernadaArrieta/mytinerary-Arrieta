@@ -59,4 +59,5 @@ body {
   position: absolute;
   top: 20px;
   color: aliceblue !important;
+  text-shadow: black 0.1em 0.1em 0.2em !important;
 } 
