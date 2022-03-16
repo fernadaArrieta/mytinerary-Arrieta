@@ -79,10 +79,10 @@ const ResponsiveAppBar = () => {
               >
               <MenuItem>
                
-               <LinkRouter to="home" className='linkresp'><Typography textAlign="center">Home</Typography></LinkRouter>
+               <LinkRouter to="home" className='linkresp'><Typography textAlign="center" color="black">Home</Typography></LinkRouter>
                 </MenuItem>
                 <MenuItem>
-               <LinkRouter to="cities" className='linkresp'><Typography textAlign="center">Cities</Typography></LinkRouter> 
+               <LinkRouter to="cities" className='linkresp'><Typography textAlign="center"  color="black">Cities</Typography></LinkRouter> 
                   
                 </MenuItem>
             

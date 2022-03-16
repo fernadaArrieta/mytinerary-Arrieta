@@ -22,7 +22,7 @@ const usersControllers = {
           //INDEXOF = 0 EL VALOR EXISTE EN EL INDICE EQ A TRUE -1 NO EXITE EQ A FALSE
           res.json({
             success: false,
-            from: "signup",
+            from: "form-Signup",
             message:
               "Ya has realizado tu SignUp de esta forma por favor realiza SignIn",
           });
@@ -37,7 +37,7 @@ const usersControllers = {
 
             res.json({
               success: true,
-              from: "signup", //RESPONDE CON EL TOKEN Y EL NUEVO USUARIO
+              from: "form-Signup", //RESPONDE CON EL TOKEN Y EL NUEVO USUARIO
               message:
                 "Te enviamos un email para validarlo, por favor verifica tu casilla para completar el signUp y agregarlo a tus metodos de SignIN ",
             });
@@ -46,7 +46,7 @@ const usersControllers = {
 
             res.json({
               success: true,
-              from: "signup",
+              from: "form-Signup",
               message:
                 "Agregamos " + from + " a tus medios para realizar signIn",
             });
@@ -74,7 +74,7 @@ const usersControllers = {
           await nuevoUsuario.save();
           res.json({
             success: true,
-            from: "signup",
+            from: "form-Signup",
             message: "Felicitaciones se ha creado tu usuario con " + from,
           }); // AGREGAMOS MENSAJE DE VERIFICACION
         } else {
@@ -84,7 +84,7 @@ const usersControllers = {
 
           res.json({
             success: true,
-            from: "signup",
+            from: "form-Signup",
             message:
               "Te enviamos un email para validarlo, por favor verifica tu casilla para completar el signUp ",
           }); // AGREGAMOS MENSAJE DE VERIFICACION
@@ -119,7 +119,7 @@ const usersControllers = {
             //TERERO VERIFICA CONTRASEÑA
 
             const userData = {
-              fullName: usuarioExiste.fullName,
+              firstName: usuarioExiste.firstName,
               email: usuarioExiste.email,
               from: usuarioExiste.from,
             };
@@ -129,7 +129,7 @@ const usersControllers = {
               success: true,
               from: from,
               response: { userData },
-              message: "Bienvenido nuevamente " + userData.fullName,
+              message: "Bienvenido nuevamente " + userData.firstName,
             });
           } else {
             res.json({
@@ -149,7 +149,7 @@ const usersControllers = {
             );
             if (contraseñaCoincide.length > 0) {
               const userData = {
-                fullName: usuarioExiste.fullName,
+                firstName: usuarioExiste.firstName,
                 email: usuarioExiste.email,
                 from: usuarioExiste.from,
               };
@@ -158,7 +158,7 @@ const usersControllers = {
                 success: true,
                 from: from,
                 response: { userData },
-                message: "Bienvenido nuevamente " + userData.fullName,
+                message: "Bienvenido nuevamente " + userData.firstName,
               });
             } else {
               res.json({

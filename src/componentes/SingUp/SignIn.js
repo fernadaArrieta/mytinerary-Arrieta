@@ -21,15 +21,15 @@ import userActions from '../../redux/actions/userActions';
         <div className="contenedorForm">
         <form onSubmit={handleSubmit}>  
     <fieldset>
-      <label for="email">Email</label>
+      <label htmlFor="email">Email</label>
       <input type="email" id="email" name="mail" />
     </fieldset>
     <fieldset>
-      <label for="contraseña">Password</label>
+      <label htmlFor="contraseña">Password</label>
       <input type="text" id="contraseña" name="contraseña" />
     </fieldset>
     <div className="botonSubmit">
-          <button class="btn-continuar" type="submit">Sing In</button>
+          <button className="btn-continuar" type="submit">Sing In</button>
         </div>
         <div className="text-center">Dont Have an account? <LinkRouter to="/signup"><span className="txtLink">SignUp</span></LinkRouter> </div>
     </form>

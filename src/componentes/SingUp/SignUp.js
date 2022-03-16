@@ -2,13 +2,17 @@ import { propTypes } from "react-bootstrap/esm/Image";
 import "./StylesForm.css";
 import { Link as LinkRouter } from "react-router-dom";
 import userActions from "../../redux/actions/userActions";
-import { connect } from 'react-redux';
+import { connect } from 'react-redux';                
+                    
+   
+      
+    
 
  function SignUp(props) {
 
   console.log(props)
   const handleSubmit = (event) => {
-    event.prevent.Default();
+    event.preventDefault()
     const userData = {
       firstName: event.target[0].value,
       lastName: event.target[1].value,
@@ -18,11 +22,13 @@ import { connect } from 'react-redux';
       selectCountry: event.target[5].value,
       from: "form-Signup",
     };
-    props.singUpUser(userData);
+    props.signUpUser(userData);
     
   };
   
-    
+  console.log(props.message) 
+  
+ 
 
   return (
     <div className="contenedorForm">
