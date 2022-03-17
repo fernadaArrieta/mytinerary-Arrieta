@@ -1,14 +1,13 @@
-import { propTypes } from "react-bootstrap/esm/Image";
+
 import "./StylesForm.css";
 import { Link as LinkRouter } from "react-router-dom";
 import userActions from "../../redux/actions/userActions";
 import { connect } from 'react-redux';  
 import React, { useEffect, useState } from "react";
-import axios from "axios";              
-                    
-   
-      
-    
+import axios from "axios";             
+import FacebookSignUp from './facebookSignup'; 
+import Snack from "../Snackbar"           
+        
 
  function SignUp(props) {
 
@@ -89,7 +88,9 @@ import axios from "axios";
             </button>
           </div>
           <div className="text-center">Do Have an account? <LinkRouter to="/signin" ><span className="txtLink">SignIn</span></LinkRouter> </div>
+          <FacebookSignUp/>
         </form>
+        <Snack/>
       </div>
     
   );

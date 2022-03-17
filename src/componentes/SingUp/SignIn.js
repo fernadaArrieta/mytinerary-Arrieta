@@ -3,6 +3,7 @@ import { Link as LinkRouter } from 'react-router-dom';
 import React from 'react'
 import { connect } from 'react-redux';
 import userActions from '../../redux/actions/userActions';
+import FacebookSignIn from './facebookSignin';
 
 
  function SignIn(props) {
@@ -12,7 +13,7 @@ import userActions from '../../redux/actions/userActions';
 		const logedUser = {
 			email: event.target[1].value,
 			password: event.target[3].value,
-			from: "form-Signin"
+			from: "form-Signup"
 		}
 		props.signInUser(logedUser)
   
@@ -33,6 +34,7 @@ import userActions from '../../redux/actions/userActions';
           <button className="btn-continuar" type="submit">Sing In</button>
         </div>
         <div className="text-center">Dont Have an account? <LinkRouter to="/signup"><span className="txtLink">SignUp</span></LinkRouter> </div>
+    <FacebookSignIn/>
     </form>
     </div>
     )
