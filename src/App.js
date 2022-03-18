@@ -15,6 +15,7 @@ import SignUp from './componentes/SingUp/SignUp';
 import SignIn from './componentes/SingUp/SignIn';
 import { connect } from 'react-redux';
 import userActions from './redux/actions/userActions';
+import Snack from './componentes/SingUp/Snackbar';
 
 
 function App(props) {
@@ -46,7 +47,7 @@ function App(props) {
    <Route path='/signin' element={<SignIn/>}/>
      
 </Routes>
-
+<Snack/>
 <Footer/>
 </BrowserRouter>
    
