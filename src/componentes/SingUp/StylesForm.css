@@ -39,7 +39,7 @@
       display: flex;
       flex-direction: column;
       width: 100%;
-      height: 100vh;     
+           
       margin-top: 2rem;
       margin-bottom: 2rem;
       padding: 20px;
@@ -123,7 +123,7 @@
 	height: 50px;
 	margin-bottom: 5px;
 	display: flex;
-	justify-content: left;
+	justify-content: center;
 	align-items: center;
 	border: 0px;
 	border-radius: 10px !important;
@@ -132,8 +132,9 @@
 }
 .my-facebook-button-class{
 	background-color: aliceblue;
-	color:black;
+	color: blue;
   text-align: center !important;
+  font-size: 18px;
 	
 }
 
@@ -143,4 +144,5 @@
 }
 .h2Form{
 color: black;
+margin-top: 3rem;
 }

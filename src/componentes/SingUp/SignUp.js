@@ -6,7 +6,8 @@ import { connect } from 'react-redux';
 import React, { useEffect, useState } from "react";
 import axios from "axios";             
 import FacebookSignUp from './facebookSignup'; 
-import Snack from "../Snackbar"           
+
+           
         
 
  function SignUp(props) {
@@ -85,7 +86,7 @@ import Snack from "../Snackbar"
           <div className="text-center">Do Have an account? <LinkRouter to="/signin" ><span className="txtLink">SignIn</span></LinkRouter> </div>
           <FacebookSignUp/>
         </form>
-        {/* <Snack/> */}
+       
       </div>
     
   );

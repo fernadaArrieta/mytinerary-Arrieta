@@ -162,19 +162,19 @@ const ResponsiveAppBar = (props) => {
               {!props.user ? 
               <>
               <MenuItem>
-              <LinkRouter to="/signin" className='link' color='black'>
-                <Typography textAlign="center">SignIn</Typography>
+              <LinkRouter to="/signin" className='link' >
+                <Typography textAlign="center" color='black'>SignIn</Typography>
                 </LinkRouter>
             </MenuItem>
             <MenuItem>
-              <LinkRouter to="/signup" className='link' color='black'><Typography textAlign="center">SignUp</Typography></LinkRouter>
+              <LinkRouter to="/signup" className='link' color='black'><Typography textAlign="center "color='black'>SignUp</Typography></LinkRouter>
             </MenuItem>
               </>:
               <>
                <MenuItem onClick={handleCloseUserMenu}>
-                  <LinkRouter to={"/signOut"}>
+                  <LinkRouter to={"/"}>
                     {" "}
-                    <Typography textAlign="center">SignOut</Typography>
+                    <Typography textAlign="center" color='black'>SignOut</Typography>
                   </LinkRouter>
                 </MenuItem>
               </>

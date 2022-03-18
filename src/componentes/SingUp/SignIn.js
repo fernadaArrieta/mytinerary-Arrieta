@@ -4,7 +4,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import userActions from '../../redux/actions/userActions';
 import FacebookSignIn from './facebookSignin';
-import Snack from '../Snackbar'
+
 
 
  function SignIn(props) {
@@ -37,7 +37,7 @@ import Snack from '../Snackbar'
         <div className="text-center">Dont Have an account? <LinkRouter to="/signup"><span className="txtLink">SignUp</span></LinkRouter> </div>
     <FacebookSignIn/>    
     </form>
-    {/* <Snack/> */}
+   
     </div>
     )
 }
