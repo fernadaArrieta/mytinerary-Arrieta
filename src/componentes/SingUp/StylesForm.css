@@ -6,7 +6,7 @@
     box-sizing: border-box;
   }
   
-/*   
+  
   body {
     display: flex;
     flex-direction: column;
@@ -17,7 +17,7 @@
     color: #fffafe; 
    
     
-  } */  
+  }   
      
 
   form {
@@ -138,4 +138,6 @@
 	margin-right: 0px !important;
 	width: 45px !important;
 }
- 
+.h2Form{
+color: black;
+}

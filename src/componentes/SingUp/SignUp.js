@@ -38,13 +38,7 @@ import Snack from "../Snackbar"
 
   return (
     <div className="contenedorForm">
-     {/*  <div className="FormSignUp">
-        <div className="imageForm">
-          <img src="https://img2.freepng.es/20181202/wat/kisspng-clip-art-portable-network-graphics-image-airport-i-5c036a162cbff2.7437731915437276381833.jpg" width={350} height={400} />
-          <h3 className="LinkSignin">
-            Already have an account?<LinkRouter to="/signin">SigIn</LinkRouter>
-          </h3>
-        </div> */}
+     <h2 className="h2Form">Registration Form</h2>
         <form onSubmit={handleSubmit}>
           <fieldset>
             <label htmlFor="firstName">First Name</label>

@@ -13,9 +13,17 @@ import CardDetalle from './componentes/itineraries'
 import CiudadDetalle from './componentes/cityDetalle'
 import FormRegistro from './componentes/SingUp/SignUp';
 import SignIn from './componentes/SingUp/SignIn';
+import { connect } from 'react-redux';
+import userActions from './redux/actions/userActions';
 
-
-const App = () => {
+function App(props) {
+  useEffect(() => {
+ 
+    if(localStorage.getItem('token')!== null){
+      const token = localStorage.getItem("token")
+      props.VerificarToken(token)
+    }
+  },[])
 
   return ( 
     
@@ -43,4 +51,9 @@ const App = () => {
   );
 }
 
-export default App;
+const mapDispatchToProps = {
+	VerificarToken: userActions.VerificarToken,
+
+}
+
+export default connect (null, mapDispatchToProps) (App);

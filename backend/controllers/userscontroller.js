@@ -71,7 +71,7 @@ const usersControllers = {
 
       if (usuarioExiste) {
         console.log(usuarioExiste.from.indexOf(from));
-        if (usuarioExiste.from.indexOf(from) === 0) {
+        if (usuarioExiste.from.indexOf(from) !== -1) {
           //INDEXOF = 0 EL VALOR EXISTE EN EL INDICE EQ A TRUE -1 NO EXITE EQ A FALSE
           res.json({
             success: false,
@@ -85,6 +85,7 @@ const usersControllers = {
           usuarioExiste.from.push(from);
           usuarioExiste.password.push(contraseñaHasheada);
           if (from === "form-Signup") {
+            usuarioExiste.uniqueString = crypto.randomBytes(15).toString('hex')
             await usuarioExiste.save();
             await sendEmail(email, usuarioExiste.uniqueString);
             res.json({
@@ -157,6 +158,7 @@ const usersControllers = {
     try {
       const usuarioExiste = await User.findOne({ email });
       console.log(usuarioExiste);
+      const indexpass = usuarioExiste.from.indexOf(from)
       if (!usuarioExiste) {
         // PRIMERO VERIFICA QUE EL USUARIO EXISTA
         res.json({
@@ -164,7 +166,7 @@ const usersControllers = {
           message: "Tu usuarios no a sido registrado realiza signIn",
         });
       } else {
-        if (from !== "form-Signin") {
+        if (from !== "form-Signup") {
           let contraseñaCoincide = usuarioExiste.password.filter((pass) =>
             bcryptjs.compareSync(password, pass)
           );
@@ -203,7 +205,7 @@ const usersControllers = {
           }
         } else {
           if (usuarioExiste.emailVerificado) {
-            let contraseñaCoincide = usuarioExiste.password.filter((pass) =>
+            let contraseñaCoincide = usuarioExiste.password.filter((password, pass) =>
               bcryptjs.compareSync(password, pass)
             );
             console.log(contraseñaCoincide);
@@ -261,6 +263,17 @@ const usersControllers = {
     await user.save();
     res.json(console.log("sesion cerrada " + email));
   },
+  verificarToken:(req, res) => {
+    console.log(req.user)
+    if(!req.err){
+    res.json({success:true,
+              response:{id:req.user.id, firstName:req.user.firstName,lastName:req.user.lastName, email:req.user.email, from:"token"},
+              message:"Bienvenido nuevamente "+req.user.fullName}) 
+    }else{
+        res.json({success:false,
+        message:"Por favor realiza nuevamente signIn"}) 
+    }
+}
 };
 
 module.exports = usersControllers;
