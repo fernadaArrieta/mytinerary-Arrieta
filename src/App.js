@@ -11,7 +11,7 @@ import axios from 'axios'
 import CardCiudad from './componentes/card';
 import CardDetalle from './componentes/itineraries'
 import CiudadDetalle from './componentes/cityDetalle'
-import FormRegistro from './componentes/SingUp/SignUp';
+import SignUp from './componentes/SingUp/SignUp';
 import SignIn from './componentes/SingUp/SignIn';
 import { connect } from 'react-redux';
 import userActions from './redux/actions/userActions';
@@ -40,7 +40,7 @@ function App(props) {
     {/*  <Route path ='/city' element={<CardCiudad/>} /> */}
   {/*  <Route path='/detail/:id' element={<CiudadDetalle/>}/> */}
    <Route path='/detail/:id' element={<CardDetalle/>}/>
-   <Route path='/signup' element={<FormRegistro/>}/>
+   <Route path='/signup' element={<SignUp/>}/>
    <Route path='/signin' element={<SignIn/>}/>
      
 </Routes>
@@ -50,10 +50,15 @@ function App(props) {
    
   );
 }
-
+/* const mapStateToProps = (state) => {
+  return {
+    user: state.userReducer.user,
+  }
+  } */
 const mapDispatchToProps = {
-	VerificarToken: userActions.VerificarToken,
+  VerificarToken: userActions.VerificarToken,
 
-}
+} 
+
 
 export default connect (null, mapDispatchToProps) (App);

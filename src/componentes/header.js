@@ -39,6 +39,7 @@ const ResponsiveAppBar = (props) => {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+    SignOut();
   };
 
   return (
@@ -49,7 +50,7 @@ const ResponsiveAppBar = (props) => {
     >
       <Container
         maxWidth="xl"
-        sx={{ width: "100%", backgroundColor: "#b4afae9c" }}
+        sx={{ width: "100%", backgroundColor: "#e7958eb6" }}
       >
         <Toolbar disableGutters>
           <Typography
@@ -158,14 +159,27 @@ const ResponsiveAppBar = (props) => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {props.user ? (
-                <MenuItem onClick={handleCloseUserMenu}>
+              {!props.user ? 
+              <>
+              <MenuItem>
+              <LinkRouter to="/signin" className='link' color='black'>
+                <Typography textAlign="center">SignIn</Typography>
+                </LinkRouter>
+            </MenuItem>
+            <MenuItem>
+              <LinkRouter to="/signup" className='link' color='black'><Typography textAlign="center">SignUp</Typography></LinkRouter>
+            </MenuItem>
+              </>:
+              <>
+               <MenuItem onClick={handleCloseUserMenu}>
                   <LinkRouter to={"/signOut"}>
                     {" "}
                     <Typography textAlign="center">SignOut</Typography>
                   </LinkRouter>
                 </MenuItem>
-              ) : (
+              </>
+               
+               /* : (
                 settings.map((setting) => (
                   <MenuItem key={setting} onClick={handleCloseUserMenu}>
                     <LinkRouter to={"/" + setting}>
@@ -173,7 +187,7 @@ const ResponsiveAppBar = (props) => {
                     </LinkRouter>
                   </MenuItem>
                 ))
-              )}
+                )} */}
             </Menu>
           </Box>
         </Toolbar>

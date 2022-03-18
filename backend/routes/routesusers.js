@@ -6,7 +6,7 @@ const {signUpUsers, signInUser, signOutUser,verifyEmail, verificarToken}= usersC
 const passport = require('../config/passport')
 
 Router.route('/auth/signup')
-.post(validator,signUpUsers)
+.post(signUpUsers)
 
 Router.route('/auth/signin')
 .post(signInUser)

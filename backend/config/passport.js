@@ -7,7 +7,8 @@ const User = require('../models/usermodel')
 module.exports = passport.use(new jwtStrategy({
     jwtFromRequest: extractJwt.fromAuthHeaderAsBearerToken(),
     secretOrKey: process.env.SECRET_KEY
-},(jwt_payload,done)=>{
+},
+(jwt_payload,done)=>{
     console.log(jwt_payload)
     User.findOne({_id:jwt_payload.id})
     
@@ -18,7 +19,7 @@ module.exports = passport.use(new jwtStrategy({
         }
         else if (err) {
             console.log(err)
-            return done(err, false);
+            return done(error, false);
         }
         else{
             return done(null, false)

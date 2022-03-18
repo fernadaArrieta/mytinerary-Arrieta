@@ -14,12 +14,12 @@ const validator = (req, res, next) => {
         email: joi.string().email({ minDomainSegments: 2 }).required().messages({
             'string.email':'Wrong email format'
         }),    
-        password: joi.string().min(6).trim().required().messages({
+        password: joi.string().pattern(new RegExp('[a-zA-Z0-9]')).required().trim().min(8).max(30).messages({
             'string.min': 'The password must have more than three letters',
             'string.max': 'The password must have less than twenty letters'
         }),
        
-        profilePicture: joi.required(),
+        profilePicture: joi.string(),
         selectCountry: joi.string(),        
         from:joi.string()
     })
@@ -28,7 +28,7 @@ const validator = (req, res, next) => {
        
     if (validation.error) {
         
-        return res.json({success: false, from:"validator", message:validation.error.details, test: validation})
+        return res.json({success: false, from:"validator", message:validation.error.details})
         
     }
     

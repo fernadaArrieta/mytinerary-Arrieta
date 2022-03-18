@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import Snackbar from '@material-ui/core/Snackbar';
 
 //material ui
@@ -84,4 +84,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, null)(Snack);
+export default connect(mapStateToProps, null)(Snack); */

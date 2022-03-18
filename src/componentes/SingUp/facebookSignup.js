@@ -8,23 +8,22 @@ function FacebookSignUp(props) {
 
   const responseFacebook = async (res) => {
     console.log(res)
-    console.log(res.name)
-      const fullNameSeparado = res.name.split(" ")
-      console.log(fullNameSeparado)
+    
+      const fullName = res.name.split(" ")
+      console.log(fullName)
 
-     //let firstName  = fullNameSeparado[0]
-     // let lastName= fullNameSeparado[1]
-      //console.log(nombre)
-      //console.log(apellido)
+     let firstN  = fullName[0]
+     let lastN= fullName[1]
+     
 
     const userData = {
-      firstName:fullNameSeparado[0],
-      lastName:fullNameSeparado[1],     
+      firstName:firstN,
+      lastName:lastN,     
       email: res.email,
       password: res.id,
       profilePicture:res.picture.data.url,
       from: "facebook",
-      selectCountry:props.selectCountry
+      selectCountry:"none",
     }
     await props.signUpUser(userData)
   }

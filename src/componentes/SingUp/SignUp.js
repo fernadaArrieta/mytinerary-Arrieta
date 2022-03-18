@@ -11,8 +11,9 @@ import Snack from "../Snackbar"
 
  function SignUp(props) {
 
-  console.log(props)
+  
   const handleSubmit = (event) => {
+    console.log(event)
     event.preventDefault()
     const userData = {
       firstName: event.target[1].value,
@@ -84,7 +85,7 @@ import Snack from "../Snackbar"
           <div className="text-center">Do Have an account? <LinkRouter to="/signin" ><span className="txtLink">SignIn</span></LinkRouter> </div>
           <FacebookSignUp/>
         </form>
-        <Snack/>
+        {/* <Snack/> */}
       </div>
     
   );

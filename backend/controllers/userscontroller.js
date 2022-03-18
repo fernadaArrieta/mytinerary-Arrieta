@@ -1,12 +1,12 @@
 const User = require("../models/usermodel");
 const bcryptjs = require("bcryptjs");
-const crypto = require("crypto"); //NPM CRYPTO
-const nodemailer = require("nodemailer"); //NPM NODEMAILER
+const crypto = require("crypto");
+const nodemailer = require("nodemailer"); 
 const jwt = require("jsonwebtoken");
 
 const sendEmail = async (email, uniqueString) => {
   //FUNCION ENCARGADA DE ENVIAR EL EMAIL
-
+console.log(email)
   const transporter = nodemailer.createTransport({
     //DEFINIMOS EL TRASPORTE UTILIZANDO NODEMAILER
     host: "smtp.gmail.com", //DEFINIMOS LO PARAMETROS NECESARIOS
@@ -16,6 +16,9 @@ const sendEmail = async (email, uniqueString) => {
       user: "testmytinerary01@gmail.com", //DEFINIMOS LOS DATOS DE AUTORIZACION DE NUESTRO PROVEEDOR DE
       pass: "benja2103", //CORREO ELECTRONICO, CONFIGURAR CUAENTAS PARA PERMIR EL USO DE APPS
     }, //CONFIGURACIONES DE GMAIL
+    tls: {
+      rejectUnauthorized: false
+  }
   });
 
   // EN ESTA SECCION LOS PARAMETROS DEL MAIL
@@ -23,10 +26,10 @@ const sendEmail = async (email, uniqueString) => {
   let mailOptions = {
     from: sender, //DE QUIEN
     to: email, //A QUIEN
-    subject: "Verificacion de email usuario ", //EL ASUNTO Y EN HTML EL TEMPLATE PARA EL CUERPO DE EMAIL Y EL LINK DE VERIFICACION
+    subject:"MyTinerary's || Verify your account " , //EL ASUNTO Y EN HTML EL TEMPLATE PARA EL CUERPO DE EMAIL Y EL LINK DE VERIFICACION
     html: `
       <div >
-      <h1 style="color:red">Presiona <a href=http://localhost:4000/api/verify/${uniqueString}>aqui</a> para confirma tu email. Gracias </h1>
+      <h1 style="color:red">Press <a href=http://localhost:4000/api/verify/${uniqueString}>"here"</a> to confirm your email. Thank you</h1>
       </div>
       `,
   };
@@ -45,7 +48,7 @@ const usersControllers = {
     const { uniqueString } = req.params; //EXTRAE EL EL STRING UNICO DEL LINK
 
     const user = await User.findOne({ uniqueString: uniqueString });
-    console.log(user); //BUSCA AL USUARIO CORRESPONDIENTE AL LINK
+   ; //BUSCA AL USUARIO CORRESPONDIENTE AL LINK
     if (user) {
       user.emailVerificado = true; //COLOCA EL CAMPO emailVerified en true
       await user.save();
@@ -56,6 +59,7 @@ const usersControllers = {
     }
   },
   signUpUsers: async (req, res) => {
+    ;
     let {
       firstName,
       lastName,
@@ -66,24 +70,27 @@ const usersControllers = {
       from,
     } = req.body.userData;
 
+
     try {
       const usuarioExiste = await User.findOne({ email }); //BUSCAR SI EL USUARIO YA EXISTE EN DB
 
+
       if (usuarioExiste) {
-        console.log(usuarioExiste.from.indexOf(from));
+       
         if (usuarioExiste.from.indexOf(from) !== -1) {
           //INDEXOF = 0 EL VALOR EXISTE EN EL INDICE EQ A TRUE -1 NO EXITE EQ A FALSE
           res.json({
             success: false,
             from: "form-Signup",
             message:
-              "Ya has realizado tu SignUp de esta forma por favor realiza SignIn",
+            "You are registered. Do you want to go SingIn page?",
           });
         } else {
           const contraseñaHasheada = bcryptjs.hashSync(password, 10);
 
           usuarioExiste.from.push(from);
           usuarioExiste.password.push(contraseñaHasheada);
+
           if (from === "form-Signup") {
             usuarioExiste.uniqueString = crypto.randomBytes(15).toString('hex')
             await usuarioExiste.save();
@@ -136,6 +143,7 @@ const usersControllers = {
           //ENVIARLE EL E MAIL PARA VERIFICAR
           await nuevoUsuario.save();
           await sendEmail(email, nuevoUsuario.uniqueString);
+         
           res.json({
             success: true,
             from: "form-Signup",
@@ -157,19 +165,22 @@ const usersControllers = {
 
     try {
       const usuarioExiste = await User.findOne({ email });
-      console.log(usuarioExiste);
+     /*  console.log(usuarioExiste);
       const indexpass = usuarioExiste.from.indexOf(from)
+      console.log(usuarioExiste.password[indexpass]) METODO PARA RECUPERAR CONTRASEÑA*/ 
+
       if (!usuarioExiste) {
         // PRIMERO VERIFICA QUE EL USUARIO EXISTA
+        
         res.json({
           success: false,
-          message: "Tu usuarios no a sido registrado realiza signIn",
-        });
+          message:"Your user never does created. Maybe you look SingUp page",
+        })
       } else {
         if (from !== "form-Signup") {
           let contraseñaCoincide = usuarioExiste.password.filter((pass) =>
             bcryptjs.compareSync(password, pass)
-          );
+          )
 
           if (contraseñaCoincide.length > 0) {
             //TECERO VERIFICA CONTRASEÑA
@@ -177,7 +188,9 @@ const usersControllers = {
             const userData = {
               id: usuarioExiste._id,
               firstName: usuarioExiste.firstName,
+              lastName:usuarioExiste.lastName,
               email: usuarioExiste.email,
+              profilePicture:usuarioExiste.profilePicture,
               from: usuarioExiste.from,
             };
             await usuarioExiste.save();
@@ -190,7 +203,7 @@ const usersControllers = {
               success: true,
               from: from,
               response: { token, userData },
-              message: "Bienvenido nuevamente " + userData.firstName,
+              message: "Bienvenido nuevamente " + userData.firstName+" " + userData.lastName,
             });
           } else {
             res.json({
@@ -205,20 +218,18 @@ const usersControllers = {
           }
         } else {
           if (usuarioExiste.emailVerificado) {
-            let contraseñaCoincide = usuarioExiste.password.filter((password, pass) =>
+            let contraseñaCoincide = usuarioExiste.password.filter((pass) =>
               bcryptjs.compareSync(password, pass)
             );
-            console.log(contraseñaCoincide);
-            console.log(
-              "resultado de busqueda de contrasela: " +
-                (contraseñaCoincide.length > 0)
-            );
+           
 
             if (contraseñaCoincide.length > 0) {
               const userData = {
                 id: usuarioExiste._id,
                 firstName: usuarioExiste.firstName,
+                lastName: usuarioExiste.lastName,
                 email: usuarioExiste.email,
+                profilePicture:usuarioExiste.profilePicture,
                 from: usuarioExiste.from,
               };
 
@@ -264,11 +275,11 @@ const usersControllers = {
     res.json(console.log("sesion cerrada " + email));
   },
   verificarToken:(req, res) => {
-    console.log(req.user)
+    //console.log(req.user)
     if(!req.err){
     res.json({success:true,
-              response:{id:req.user.id, firstName:req.user.firstName,lastName:req.user.lastName, email:req.user.email, from:"token"},
-              message:"Bienvenido nuevamente "+req.user.fullName}) 
+              response:{id:req.user.id, firstName:req.user.firstName,lastName:req.user.lastName, email:req.user.email,profilePicture:req.user.profilePicture, from:"token"},
+              message:"Bienvenido nuevamente "+req.user.firstName}) 
     }else{
         res.json({success:false,
         message:"Por favor realiza nuevamente signIn"}) 

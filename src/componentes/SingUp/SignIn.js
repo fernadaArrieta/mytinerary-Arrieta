@@ -17,7 +17,7 @@ import Snack from '../Snackbar'
 			from: "form-Signup"
 		}
 		props.signInUser(logedUser)
-  
+  console.log(logedUser)
 	}
 
     return(
@@ -37,7 +37,7 @@ import Snack from '../Snackbar'
         <div className="text-center">Dont Have an account? <LinkRouter to="/signup"><span className="txtLink">SignUp</span></LinkRouter> </div>
     <FacebookSignIn/>    
     </form>
-    <Snack/>
+    {/* <Snack/> */}
     </div>
     )
 }
