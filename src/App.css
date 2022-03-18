@@ -198,6 +198,7 @@ a{
   /* margin-top: 2rem; */
 }
 .cont-contenido{
+  margin-top: 3rem;
   width:100%;
   height: 60vh;
   display: flex; 
