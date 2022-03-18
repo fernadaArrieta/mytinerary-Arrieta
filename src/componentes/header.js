@@ -15,10 +15,13 @@ import { Link as LinkRouter } from "react-router-dom";
 import { propTypes } from "react-bootstrap/esm/Image";
 import userActions from "../redux/actions/userActions";
 import { connect } from "react-redux";
+import AccountCircle from '@mui/icons-material/AccountCircle';
+
 
 const settings = ["Signin", "Signup"];
 
 const ResponsiveAppBar = (props) => {
+  console.log(props)
   function SignOut() {
     props.SignOutUser(props.user.email);
   }
@@ -41,6 +44,7 @@ const ResponsiveAppBar = (props) => {
     setAnchorElUser(null);
     SignOut();
   };
+ 
 
   return (
     <AppBar
@@ -140,7 +144,12 @@ const ResponsiveAppBar = (props) => {
               sx={{ width: "10px", paddingRight: "20px" }}
             >
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar src="/broken-image.jpg" />
+                {props.user?(
+                  <>
+                  <Avatar src={props.user.profilePicture} />
+                  </>
+                ):(<AccountCircle id="accountcircle"/>)}
+                
               </IconButton>
             </Tooltip>
             <Menu
