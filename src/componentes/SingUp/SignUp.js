@@ -41,7 +41,7 @@ import FacebookSignUp from './facebookSignup';
   return (
     <div className="contenedorForm">
      <h2 className="h2Form">Registration Form</h2>
-        <form className="formSinup" onSubmit={handleSubmit}>
+        <form  onSubmit={handleSubmit}>
           <fieldset>
             <label htmlFor="firstName">First Name</label>
             <input type="text" id="firstName" name="firstName" />

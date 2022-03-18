@@ -23,7 +23,7 @@ import FacebookSignIn from './facebookSignin';
 
     return(
         <div className="contenedorForm">
-        <form className="formSignin" onSubmit={handleSubmit}>  
+        <form onSubmit={handleSubmit}>  
     <fieldset>
       <label htmlFor="email">Email</label>
       <input type="email" id="email" name="mail" />
