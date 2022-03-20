@@ -50,7 +50,7 @@ const ResponsiveAppBar = (props) => {
     <AppBar
       position="fixed"
       className="navBar"
-      sx={{ width: "100%", backgroundColor: "transparent" }}
+      sx={{ width: "100%", backgroundColor: "#e7958eb6" }}
     >
       <Container
         maxWidth="xl"
@@ -146,7 +146,7 @@ const ResponsiveAppBar = (props) => {
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 {props.user?(
                   <>
-                  <Avatar src={props.user.profilePicture} />
+                  <Avatar  src={props.user.profilePicture} sx={{ width: 56, height: 56 }} />
                   </>
                 ):(<AccountCircle id="accountcircle"/>)}
                 
@@ -188,15 +188,7 @@ const ResponsiveAppBar = (props) => {
                 </MenuItem>
               </>
                
-               /* : (
-                settings.map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <LinkRouter to={"/" + setting}>
-                      <Typography textAlign="center"   >{setting}</Typography>
-                    </LinkRouter>
-                  </MenuItem>
-                ))
-                )} */}
+            }
             </Menu>
           </Box>
         </Toolbar>
@@ -204,7 +196,7 @@ const ResponsiveAppBar = (props) => {
     </AppBar>
   );
 };
-//};
+
 
 const mapStateToProps = (state) => {
   return {
