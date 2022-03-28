@@ -15,37 +15,48 @@ function Likes(props){
     const [reload, setReload]=useState(false)
 
     useEffect(()=>{
-        props.getItinerariosPorCiudad (id)
-        .then(response=>setItineraries(response.data.response.itineraries))
-
+       
+        props. getOneitinerario (props.id)
+        .then(response=>setItineraries(response))
+         //.then(response=> console.log(response))
+         //console.log(id)
+         //console.log(props.id)
     }, [reload]) 
 
   async function LikesOrDislikes (){
-        await props.likeDislike(itineraries._id)
+      console.log(props)
+        await props.likeDislike(props.id)
         setReload(!reload)
     }  
    
 
     return(
+        
         <div className="btnlike">
-            <button onClick={LikesOrDislikes}><FavoriteBorderIcon/></button>
+           {/*  //<button onClick={LikesOrDislikes}><FavoriteBorderIcon/></button> */}
              {props.user ?
-              (<button onClick={LikesOrDislikes}>{itineraries?.likes.includes(props.user.id) ?
-                <span  ><FavoriteBorderIcon style={{ color: "red", fontSize:30 }}/></span> :
-                <span style={{  fontSize:30 }}><FavoriteBorderIcon/></span>}</button>)
-
-              : (<span style={{  fontSize:30 }} class="material-icons"><FavoriteBorderIcon/></span>)}
-
-          <h3 style={{  color:"black ",fontSize:30 }}>{itineraries?.likes.length}</h3>
-            <FavoriteBorderIcon onclick={LikesOrDislikes}/>
-            <span>0</span>   
+              (<button onClick={LikesOrDislikes}>
+                {itineraries?.likes.includes(props.user.id) ?
+                  <FavoriteBorderIcon style={{ color: "red", fontSize:30 }}/> :
+                  <FavoriteBorderIcon style={{ color:"black ",fontSize:30}}/>
+                }
+                 <h3 style={{  color:"black ",fontSize:30 }}>{itineraries?.likes.length}</h3>
+            </button>)
+              
+              :<>
+              <FavoriteBorderIcon style={{ color:"black ", fontSize:30 }}/>
+              <h3 style={{  color:"black ",fontSize:30 }}>{itineraries?.likes.length}</h3>
+              </>}
+             
+                           
         </div>
 
     )
 }
  const mapDispatchToProps={
     getItinerariosPorCiudad: itinerariesActions.getItinerariosPorCiudad ,
-    likeDislike: itinerariesActions.likeDislike
+    likeDislike: itinerariesActions.likeDislike,
+    getOneitinerario: itinerariesActions. getOneitinerario,
 } 
 
 const mapStateToProps = (state)=>{

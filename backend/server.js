@@ -18,6 +18,7 @@ app.use(express.json())
 app.use('/api', Router)
 app.use('/api/v1', RouterTinerary)
 app.use('/api',RoutesUsers)
+
 app.use(passport.initialize())
 
 app.listen(PORT,()=>console.log ('Server ready on PORT'+PORT))

@@ -2,6 +2,7 @@ import axios from "axios"
 import { ITINERARIES_GET } from "../actions/types";
 
 const itinerariesActions = {
+    
     getItinerariosPorCiudad : (id) => {
         return async (dispatch, getState) => {
             const res = await axios.get(`http://localhost:4000/api/v1/tineraries/${id}`)          
@@ -10,6 +11,18 @@ const itinerariesActions = {
             
         }
     },
+    getOneitinerario : (id) => {
+        return async () => {
+            try{
+                const res = await axios.get(`http://localhost:4000/api/v1/tinerary/${id}`) 
+                return res.data.response                
+            }catch(error){
+                console.log(error)
+            }                   
+                                   
+        }
+    },
+
    likeDislike: (id)=>{
     const token= localStorage.getItem("token")
     return async ()=>{

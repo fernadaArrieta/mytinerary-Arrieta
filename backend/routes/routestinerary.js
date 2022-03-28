@@ -1,11 +1,12 @@
 const Router = require('express').Router()
-
-const { getItinerariosPorCiudad, likeDislike } = require('../controllers/itinerariosControllers')
-const tineraryController = require('../controllers/itinerariosControllers')
-const {obtenerItinerario, cargarItinerario, borrarItinerario, modificarItinerario} = tineraryController
+const validator = require('../config/validator')
 const passport = require('../config/passport')
+
+const tineraryController = require('../controllers/itinerariosControllers')
+const {obtenerItinerario, cargarItinerario, borrarItinerario, modificarItinerario, getItinerariosPorCiudad,getOneitinerario, likeDislike} = tineraryController
+
 const commentsControllers= require('../controllers/commentsControllers')
-const {addComment, modifiComment,deleteComment}= commentsControllers
+const {addComment, modifyComment,deleteComment}= commentsControllers
 const activityControllers = require('../controllers/activityControllers')
 const {addActivity, activityOfItinerary} =activityControllers
 
@@ -19,6 +20,8 @@ Router.route('/tineraries/:id')
 .put(modificarItinerario)
 .get(getItinerariosPorCiudad)
 
+Router.route('/tinerary/:id')
+.get(getOneitinerario)
 //LIKES
 Router.route("/tineraries/likeDislike/:id")
 .put(passport.authenticate("jwt", {session:false}), likeDislike)
@@ -26,17 +29,17 @@ Router.route("/tineraries/likeDislike/:id")
 //COMMENTS
 Router.route('/tineraries/comment')
 .post(passport.authenticate('jwt',{ session: false }),addComment)
-.put(passport.authenticate('jwt',{ session: false }),modifiComment)
 
 Router.route('/tineraries/comment/:id')
 .post(passport.authenticate('jwt',{ session: false }),deleteComment)
+.put(passport.authenticate('jwt',{ session: false }),modifyComment)
 
 // ACTIVITIES
-Router.route("/activities")
+Router.route("/tineraries/activities")
   .post(addActivity)
 
 
-Router.route('/activities/:itineraryId')
+Router.route('/tineraries/activities/:itineraryId')
 .get(activityOfItinerary)
 
 module.exports = Router

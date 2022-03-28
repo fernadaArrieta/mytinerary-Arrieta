@@ -64,6 +64,26 @@ const tineraryController = {
 
     try {
       tinerario = await Tinerary.find({ cityId: id });
+      //.populate("comments.userID", {firstName:1,profilePicture:1,LastName:1})
+    } catch (err) {
+      error = err;
+      console.log(error);
+    }
+    res.json({
+      response: error ? "ERROR" : tinerario,
+      success: error ? false : true,
+      error: error,
+    });
+  },
+  getOneitinerario: async (req, res) => {
+    const itinerarioId = req.params.id;
+
+    let tinerario;
+    let error = null;
+
+    try {
+      tinerario = await Tinerary.findOne({ _id:itinerarioId })
+      //.populate("comments.userId", {firstName:1,profilePicture:1,lastName:1})
     } catch (err) {
       error = err;
       console.log(error);
@@ -75,16 +95,17 @@ const tineraryController = {
     });
   },
 
+
   likeDislike:async (req,res) =>{
 
-
-    const itineraryId= req.params.id
+console.log(req.params)
+    const id= req.params.id
     const user= req.user._id
-
+   console.log("REQ DE LIKEDISLIKE") 
    console.log(id)
    console.log(user)
   
-    await Tinerary.findOne({_id: itineraryId })
+    await Tinerary.findOne({_id: id})
 
     .then((itinerarios)=>{
 console.log(itinerarios)
@@ -93,7 +114,7 @@ if(itinerarios.likes.includes(user)){
   .then((response) => res.json({success:true, response:response.likes}))
   .catch((error) => console.log(error))
 } else{
-  Tinerary.findOneAndUpdate({_id:id}, {$push:{likes:user}}, {new: true})
+  Tinerary.findOneAndUpdate({_id: id}, {$push:{likes:user}}, {new: true})
   .then((response) => res.json({success:true, response:response.likes}))
   .catch((error) => console.log(error))
 }

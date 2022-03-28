@@ -52,30 +52,30 @@ const Comments = (props) => {
               <div className="userComments">
                 {comment.userID?.fistName}
               </div>
-              <div class="card-body">
-                <p class="card-text">{comment.comment}</p>
+              <div className="card-body">
+                <p className="card-text">{comment.comment}</p>
               </div>
             </div>
           ) : (
-            <div class="card cardComments">
-              <div class="card-header">{comment.userID.firsName }</div>
-              <div class="card-body ">
+            <div className="card cardComments">
+              <div className="card-header">{comment.userID.firsName }</div>
+              <div className="card-body ">
                           <textarea type="text" className="card-text textComments" onChange={(event) => setModifi(event.target.value)} defaultValue={comment.comment} />
-                          <button id={comment._id} onClick={modificarComentario} class="btn btn-primary">Modificar</button>
-                          <button id={comment._id} onClick={eliminarComentario} class="btn btn-primary">Eliminar</button>
+                          <button id={comment._id} onClick={modificarComentario} className="btn btn-primary">Modificar</button>
+                          <button id={comment._id} onClick={eliminarComentario} className="btn btn-primary">Eliminar</button>
                         </div>
             </div>
           )}
         </>
          )}
  {props.user ?
-    <div class="card cardComments">
-      <div class="card-header">
+    <div className="card cardComments">
+      <div className="card-header">
       Leave us your comment
       </div>
-      <div class="card-body ">
+      <div className="card-body ">
         <textarea onChange={(event) => setInputText(event.target.value)} className="card-text textComments" value={inputText} />
-        <button onClick={cargarComentario} class="btn btn-primary">Cargar</button>
+        <button onClick={cargarComentario} className="btn btn-primary">Load</button>
       </div>
     </div> :
     <h1>
