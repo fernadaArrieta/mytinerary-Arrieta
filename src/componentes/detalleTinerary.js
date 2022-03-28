@@ -3,6 +3,9 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import SelectVariants from "./droptow";
 import SimpleAccordion from "./droptow";
+import Likes from "./like";
+import {connect} from "react-redux";
+import itinerariesActions from "../redux/actions/itinerariesActions";
 
 function DetalleTinerary({ itinerario }) {
   const price = [];
@@ -14,11 +17,11 @@ function DetalleTinerary({ itinerario }) {
       <div className="contieneItinerario">
         <div className="card-container">
           <div className="header">
-            <a href="#">
+            
               
               <img src={itinerario.userPhoto} />
               <h4 sx={{ color: "black" }}>{itinerario.userName}</h4>
-            </a>
+           
           </div>
           <div className="description">
           <h2 className="tituloTinerario">{itinerario.name}</h2>
@@ -36,14 +39,20 @@ function DetalleTinerary({ itinerario }) {
                 ))}
               </div>
             </div>
-            <FavoriteBorderIcon sx={{ color: "pink" }} />            
+            <Likes likes={itinerario.likes} id={itinerario._id} /> 
+            <SimpleAccordion />           
           </div>
         </div>
-      </div>
-      <div className="btnDrop">
-      <SimpleAccordion />
-      </div>
+      </div>      
+      
+      
     </div>
   );
-}
-export default DetalleTinerary;
+};
+
+const mapStateToProps = (state)=>{
+  return{
+  user:state.userReducer.user,
+  itineraries:state.itinerariesReducer.itineraries,
+}}
+export default connect(mapStateToProps, null)(DetalleTinerary);

@@ -4,8 +4,15 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Comments from './comments'
+import { connect } from "react-redux";
+import itinerariesActions from "../redux/actions/itinerariesActions";
+import userActions from '../redux/actions/userActions'
+import commentsActions from '../redux/actions/commentsActions';
+import { useEffect, useState } from "react";
 
-export default function SimpleAccordion() {
+ function SimpleAccordion(props) {
+  const [itineraries, setItineraries]= useState()
   return (
     <div>
       <Accordion sx={{fontSize:"18 px", ml:7}}>
@@ -14,16 +21,13 @@ export default function SimpleAccordion() {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>Actions</Typography>
+          <Typography>View More</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
+          
           </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion sx={{fontSize:"18 px", ml:7}}>
+          <Accordion sx={{fontSize:"18 px", ml:7}}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -33,11 +37,13 @@ export default function SimpleAccordion() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
+          <Comments itineraries={itineraries}/>
           </Typography>
         </AccordionDetails>
       </Accordion>
+        </AccordionDetails>
+      </Accordion>
+      
       </div>
       );
 }
@@ -82,3 +88,15 @@ export default function SelectVariants() {
   );
 }
  */
+const mapDispatchToProps={
+  getItinerariosPorCiudad: itinerariesActions. getItinerariosPorCiudad,
+  addComment:commentsActions.addComment,
+  modifiComment: commentsActions.modifiComment,
+deleteComment: commentsActions.deleteComment,
+}
+const mapStateToProps = (state)=>{
+  return{
+  user:state.userReducer.user,
+  itineraries:state.itinerariesReducer.itineraries,
+}}
+export default  connect(mapStateToProps, mapDispatchToProps)(SimpleAccordion);

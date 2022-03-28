@@ -3,11 +3,11 @@ import axios from 'axios';
 const userActions = {
 
     signUpUser: (userData) => {
-        console.log(userData)
+        
         return async (dispatch, getState) => {
 
             const res = await axios.post('http://localhost:4000/api/auth/signup', { userData })
-            console.log(res)
+           
             dispatch({type: 'message',
                       payload: {view: true,
                                 message: res.data.message,
@@ -20,7 +20,7 @@ const userActions = {
 
         return async (dispatch, getState) => {
             const user = await axios.post('http://localhost:4000/api/auth/signin', { logedUser })
-            console.log(user)
+           
             if(user.data.success){
 
                 localStorage.setItem('token',user.data.response.token)  
@@ -45,7 +45,7 @@ const userActions = {
 VerificarToken: (token) => {
 
     return async (dispatch, getState) => {
-        console.log(token)
+        
         const user = await axios.get('http://localhost:4000/api/auth/signInToken', {
             headers: {
                 'Authorization': 'Bearer ' + token

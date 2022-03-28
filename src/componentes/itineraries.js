@@ -16,7 +16,7 @@ function CardDetalle(props) {
     //props.getOneCity(id);
     props.getItinerariosPorCiudad(id);
   }, []);
-  console.log(props);
+ 
 
   return (
     <>

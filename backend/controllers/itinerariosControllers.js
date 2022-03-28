@@ -18,7 +18,7 @@ const tineraryController = {
     });
   },
   cargarItinerario: async (req, res) => {
-    console.log(req.body);
+    
     const {
       city,
       userPhoto,
@@ -56,7 +56,7 @@ const tineraryController = {
     let tinerarydb = await Tinerary.findOneAndUpdate({ _id: id }, itinerary);
     console.log(tinerarydb);
   },
-  obtenerUnItinerario: async (req, res) => {
+  getItinerariosPorCiudad: async (req, res) => {
     const id = req.params.id;
 
     let tinerario;
@@ -74,6 +74,33 @@ const tineraryController = {
       error: error,
     });
   },
-};
 
-module.exports = tineraryController;
+  likeDislike:async (req,res) =>{
+
+
+    const itineraryId= req.params.id
+    const user= req.user._id
+
+   console.log(id)
+   console.log(user)
+  
+    await Tinerary.findOne({_id: itineraryId })
+
+    .then((itinerarios)=>{
+console.log(itinerarios)
+if(itinerarios.likes.includes(user)){
+  Tinerary.findOneAndUpdate({_id:id}, {$pull:{likes:user}}, {new: true})
+  .then((response) => res.json({success:true, response:response.likes}))
+  .catch((error) => console.log(error))
+} else{
+  Tinerary.findOneAndUpdate({_id:id}, {$push:{likes:user}}, {new: true})
+  .then((response) => res.json({success:true, response:response.likes}))
+  .catch((error) => console.log(error))
+}
+    })
+  .catch((error)=>res.json({success:false, response:error})) 
+ 
+  
+},
+}
+module.exports = tineraryController

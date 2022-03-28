@@ -13,8 +13,12 @@ const itinerarySchema = new mongoose.Schema({
     time:{type:Number,required:true},   
     tags:{type:Array, required:true},
     description:{type:String,required:true},    
-    comments: {type:Array,required:true},
-    cityId: { type: mongoose.Schema.Types.ObjectId, ref: "cities" }
+    comments:[{
+        comment:{type:String},
+        userId:{type:mongoose.Types.ObjectId, ref:"users"}
+    }] ,
+    cityId: { type: mongoose.Schema.Types.ObjectId, ref: "cities" },
+    likes: {type:Array},
     
 });
 

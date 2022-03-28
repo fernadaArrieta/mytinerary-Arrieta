@@ -21,7 +21,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 const settings = ["Signin", "Signup"];
 
 const ResponsiveAppBar = (props) => {
-  console.log(props)
+ 
   function SignOut() {
     props.SignOutUser(props.user.email);
   }
@@ -50,7 +50,7 @@ const ResponsiveAppBar = (props) => {
     <AppBar
       position="fixed"
       className="navBar"
-      sx={{ width: "100%", backgroundColor: "#e7958eb6" }}
+      sx={{ width: "100%", backgroundColor: "#e99892" }}
     >
       <Container
         maxWidth="xl"

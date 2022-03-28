@@ -10,7 +10,7 @@ import {useDispatch} from 'react-redux'
 
 
 function Snack(props) {
-  console.log(props)
+
   const dispatch = useDispatch()
 
   const useStyles = makeStyles(theme => ({
@@ -20,7 +20,7 @@ function Snack(props) {
   }));
 
   const MySnackbar = styled(Snackbar)({
-    backgroundColor: props.snackbar.success ? 'green' : 'red',
+    backgroundColor: props.snackbar.success ? '#82E0AA' : '#D98880',
     color: '#fff',
     borderRadius: '4px',
     padding: '6px 16px',

@@ -1,0 +1,9 @@
+.cardComments{
+    width:100% !important;
+    height: auto !important;
+    min-height: fit-content !important;
+    background-color: white !important;
+}
+.textComments{
+    width: 100% !important;
+}
