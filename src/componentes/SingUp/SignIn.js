@@ -4,6 +4,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import userActions from '../../redux/actions/userActions';
 import FacebookSignIn from './facebookSignin';
+import ImgLogin from "./login.jpg"
 
 
 
@@ -23,6 +24,7 @@ import FacebookSignIn from './facebookSignin';
 
     return(
         <div className="contenedorForm">
+        <img src={ImgLogin} alt="svg" className="svg"/>
         <form onSubmit={handleSubmit}>  
     <fieldset>
       <label htmlFor="email">Email</label>

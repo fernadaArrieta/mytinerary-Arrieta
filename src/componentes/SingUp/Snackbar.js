@@ -63,7 +63,7 @@ function Snack(props) {
                 )}
               </ul>
             }
-            <IconButton className={classes.icon} size="small" aria-label="close" color="inherit" onClick={handleClose}>
+            <IconButton className={classes.icon} size="large" aria-label="close" color="inherit" onClick={handleClose}>
               <CloseIcon fontSize="small" />
             </IconButton>
           </>

@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import React, { useEffect, useState } from "react";
 import axios from "axios";             
 import FacebookSignUp from './facebookSignup'; 
+import ImgLogin from "./login.jpg"
 
            
         
@@ -40,7 +41,7 @@ import FacebookSignUp from './facebookSignup';
 
   return (
     <div className="contenedorForm">
-     <h2 className="h2Form">Registration Form</h2>
+      <img src={ImgLogin} alt="svg" className="svg"/>     
         <form  onSubmit={handleSubmit}>
           <fieldset>
             <label htmlFor="firstName">First Name</label>
@@ -84,7 +85,7 @@ import FacebookSignUp from './facebookSignup';
             </button>
           </div>
           <div className="text-center">Do Have an account? <LinkRouter to="/signin" ><span className="txtLink">SignIn</span></LinkRouter> </div>
-          <FacebookSignUp/>
+          
         </form>
        
       </div>

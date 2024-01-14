@@ -18,7 +18,7 @@ import { connect } from "react-redux";
 import AccountCircle from '@mui/icons-material/AccountCircle';
 
 
-const settings = ["Signin", "Signup"];
+//const settings = ["Signin", "Signup"];
 
 const ResponsiveAppBar = (props) => {
  
@@ -74,6 +74,7 @@ const ResponsiveAppBar = (props) => {
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
+             
             >
               <MenuIcon />
             </IconButton>
@@ -146,7 +147,7 @@ const ResponsiveAppBar = (props) => {
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 {props.user?(
                   <>
-                  <Avatar  src={props.user.profilePicture} sx={{ width: 56, height: 56 }} />
+                  <Avatar  src={props.user.profilePicture} sx={{ width: 100, height: 100 }}  />
                   </>
                 ):(<AccountCircle id="accountcircle"/>)}
                 
